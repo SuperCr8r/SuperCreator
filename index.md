@@ -1,10 +1,10 @@
 {% include navigation.md %}
 
-# Knowledge Hub
+## Welcome
 
-Welcome to my personal knowledge space.
+Welcome to my **Knowledge Hub**.
 
-This site contains notes, ideas and explorations across books, productivity, product thinking and innovation.
+This website captures my notes, insights and experiments across learning, productivity, product thinking and innovation.
 
 ---
 
@@ -18,27 +18,38 @@ Insights and reflections from books I read.
 ---
 
 ### ⚙️ Productivity
-Ideas and systems for improving productivity.
+Ideas and experiments to improve productivity and thinking systems.
 
 → [Explore Productivity](productivity)
 
 ---
 
 ### 🧠 Product Thinking
-Thoughts and frameworks around product development.
+Frameworks and notes about product development and strategy.
 
 → [Explore Product](product)
 
 ---
 
 ### 🚀 Innovation
-Ideas and experiments around innovation.
+Thoughts on innovation systems, experiments and frameworks.
 
 → [Explore Innovation](innovation)
 
 ---
 
-### ➕ More
-Future topics and experiments.
+## Latest Notes
 
-→ [Explore More](more)
+• [Atomic Habits](books/atomic-habits)
+
+More insights coming soon.
+
+---
+
+## About This Site
+
+This site acts as a **personal knowledge repository** capturing ideas and reflections across multiple domains.
+
+The goal is to build a structured knowledge base over time.
+
+---
