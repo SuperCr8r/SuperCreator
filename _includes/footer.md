@@ -1,4 +1,3 @@
 ---
 
-© Knowledge Hub  
-Built using GitHub Pages
+© Knowledge Hub   
