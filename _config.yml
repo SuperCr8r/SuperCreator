@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 title: Knowledge Hub
 description: Notes and explorations across books, productivity, product thinking and innovation.
+github:
+  is_project_page: false
