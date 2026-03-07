@@ -1,9 +1,9 @@
-# Book Notes
+# Books
 
-This section contains reflections and insights from books I read.
+This section contains notes and reflections from books I read.
 
-## Reviews
+## Books
 
-- Atomic Habits
-- The Psychology of Money
-- Deep Work
+- [Atomic Habits](book1)
+- [Psychology of Money](book2)
+- [Deep Work](book3)
