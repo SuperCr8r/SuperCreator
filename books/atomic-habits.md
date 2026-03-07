@@ -1,12 +1,10 @@
-[Home](../..) | [Books](..) | [Productivity](../../productivity) | [Product](../../product) | [Innovation](../../innovation) | [More](../../more)
+{% include navigation.md %}
 
 ---
 title: Atomic Habits
 section: books
 description: Building powerful habits through small improvements.
 ---
-
-{% include navigation.md %}
 
 # Atomic Habits
 Author: James Clear
