@@ -1,17 +1,32 @@
-# Knowledge Notes
+# Knowledge Hub
 
 Welcome to my personal knowledge space.
 
-This site contains my reflections on books and personal productivity systems.
+This website contains notes, ideas and explorations across books, productivity, product thinking and innovation.
 
 ## Sections
 
 ### 📚 Books
-Notes and insights from books I read.
+Insights and reflections from books I read.
 
-→ [Visit Books Section](books)
+→ [Explore Books](books)
 
-### ⚙️ Personal Productivity
-Ideas, experiments, and systems for improving productivity.
+### ⚙️ Productivity
+Ideas and systems for improving productivity.
 
-→ [Visit Productivity Section](productivity)
+→ [Explore Productivity](productivity)
+
+### 🧠 Product Thinking
+Thoughts and frameworks around product development.
+
+→ [Explore Product](product)
+
+### 🚀 Innovation
+Ideas and experiments around innovation.
+
+→ [Explore Innovation](innovation)
+
+### ➕ More
+Future topics and experiments.
+
+→ [Explore More](more)
