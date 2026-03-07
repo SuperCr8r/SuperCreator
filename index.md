@@ -1,13 +1,17 @@
-# My Book Review Journal
+# Knowledge Notes
 
-Welcome to my reading space.
+Welcome to my personal knowledge space.
 
-Here I share thoughts, reflections, and insights from books I read across topics like philosophy, psychology, productivity, and leadership.
+This site contains my reflections on books and personal productivity systems.
 
-## Recent Reviews
+## Sections
 
-- Atomic Habits
-- The Psychology of Money
-- Deep Work
+### 📚 Books
+Notes and insights from books I read.
 
-More reviews coming soon.
+→ [Visit Books Section](books)
+
+### ⚙️ Personal Productivity
+Ideas, experiments, and systems for improving productivity.
+
+→ [Visit Productivity Section](productivity)
