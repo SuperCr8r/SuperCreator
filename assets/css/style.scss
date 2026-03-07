@@ -1,0 +1,19 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Reduce hero banner height */
+.page-header {
+  padding: 2rem 1rem;
+}
+
+/* Reduce title size slightly */
+.project-name {
+  font-size: 2.2rem;
+}
+
+/* Reduce subtitle spacing */
+.project-tagline {
+  margin-bottom: 0.5rem;
+}
