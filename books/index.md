@@ -5,8 +5,8 @@
 
 This section contains notes and reflections from books I read.
 
-## Books
+### Books Collection
 
-- [Atomic Habits](book1)
-- [Psychology of Money](book2)
-- [Deep Work](book3)
+• [Atomic Habits](atomic-habits)
+• Psychology of Money  
+• Deep Work
