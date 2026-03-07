@@ -19,17 +19,4 @@ This section contains notes and reflections from books I read.
 
 </div>
 
-
-
-### Books Collection
-• [Atomic Habits](atomic-habits)
-
-• Psychology of Money  
-
-• Deep Work
-
-
-
-
 {% include footer.md %}
-
