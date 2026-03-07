@@ -1,6 +1,5 @@
-[Home](../) | [Books](../books) | [Productivity](../productivity) | [Product](.) | [Innovation](../innovation) | [More](../more)
+{% include navigation.md %}
 
----
 # Product Thinking
 
 Notes and frameworks around product development.
