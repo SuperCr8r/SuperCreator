@@ -20,3 +20,20 @@
 .site-footer-credits {
   display: none;
 }
+
+/* Custom Footer */
+
+.site-footer-custom {
+  margin-top: 3rem;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #1f6f8b;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Remove GitHub footer credit */
+.site-footer-credits {
+  display: none;
+}
