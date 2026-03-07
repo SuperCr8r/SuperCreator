@@ -3,34 +3,29 @@
 
 @import "{{ site.theme }}";
 
-/* Reduce hero banner height */
+/* Reduce hero height */
 .page-header {
-  padding: 1rem 2rem;
+  padding: 1.5rem 1rem;
 }
 
-/* Reduce title size slightly */
+/* Slightly smaller title */
 .project-name {
   font-size: 2.2rem;
 }
 
-/* Reduce subtitle spacing */
-.project-tagline {
-  margin-bottom: 0.5rem;
-}
-
 /* Custom Footer */
-
 .site-footer-custom {
   margin-top: 3rem;
   padding: 1.2rem;
   text-align: center;
   font-size: 0.9rem;
-  background-color: #1f6f8b;
+  background-color: #2c3e50;
   color: white;
   border-radius: 6px;
 }
 
-/* Remove GitHub footer credit */
+/* Remove GitHub footer */
 .site-footer-credits {
   display: none;
 }
+
