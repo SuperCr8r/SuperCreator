@@ -1,3 +1,6 @@
+[Home](../) | [Books](.) | [Productivity](../productivity) | [Product](../product) | [Innovation](../innovation) | [More](../more)
+
+---
 # Productivity
 
 Experiments and ideas related to improving productivity.
