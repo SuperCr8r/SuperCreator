@@ -1,3 +1,7 @@
+[Home](.) | [Books](books) | [Productivity](productivity) | [Product](product) | [Innovation](innovation) | [More](more)
+
+---
+
 # Knowledge Hub
 
 Welcome to my personal knowledge space.
