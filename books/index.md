@@ -11,3 +11,5 @@ This section contains notes and reflections from books I read.
 • Psychology of Money  
 
 • Deep Work
+
+{% include footer.md %}
