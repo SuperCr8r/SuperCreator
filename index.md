@@ -1,6 +1,4 @@
-[Home](.) | [Books](books) | [Productivity](productivity) | [Product](product) | [Innovation](innovation) | [More](more)
-
----
+{% include navigation.md %}
 
 # Knowledge Hub
 
@@ -42,8 +40,5 @@ Ideas and experiments around innovation.
 
 ### ➕ More
 Future topics and experiments.
-
-→ [Explore More](more)
-
 
 → [Explore More](more)
