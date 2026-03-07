@@ -1,6 +1,5 @@
-[Home](../) | [Books](../books) | [Productivity](.) | [Product](../product) | [Innovation](../innovation) | [More](../more)
+{% include navigation.md %}
 
----
 # Productivity
 
 Experiments and ideas related to improving productivity.
