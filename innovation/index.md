@@ -1,6 +1,4 @@
-[Home](../) | [Books](../books) | [Productivity](../productivity) | [Product](../product) | [Innovation](.) | [More](../more)
-
----
+{% include navigation.md %}
 
 # Innovation
 
