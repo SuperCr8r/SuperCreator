@@ -2,7 +2,7 @@
 
 # Books
 
-This section contains notes and reflections from books I read.
+This section contains notes and reflections from books I read!!
 
 <div class="card-container">
 
