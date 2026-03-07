@@ -4,12 +4,6 @@
 
 This section contains notes and reflections from books I read.
 
-{% include navigation.md %}
-
-# Books
-
-This section contains notes and reflections from books I read.
-
 <div class="card-container">
 
 {% for page in site.pages %}
