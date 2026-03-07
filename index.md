@@ -53,3 +53,6 @@ This site acts as a **personal knowledge repository** capturing ideas and reflec
 The goal is to build a structured knowledge base over time.
 
 ---
+
+
+{% include footer.md %}
