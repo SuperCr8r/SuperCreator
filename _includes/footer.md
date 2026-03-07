@@ -1,3 +1,3 @@
 ---
 
-© Knowledge Hub   
+© SuperCreator Knowledge Hub   
