@@ -9,7 +9,7 @@ This section contains notes and reflections from books I read!!
 {% for page in site.pages %}
   {% if page.section == "books" %}
 
-  <a class="card" href="{{ page.url }}">
+  <a class="card" href="{{ site.baseurl }}{{ page.url }}">
     <div class="card-title">{{ page.title }}</div>
     <div class="card-desc">{{ page.description }}</div>
   </a>
