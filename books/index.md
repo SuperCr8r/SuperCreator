@@ -6,15 +6,15 @@ This section contains notes and reflections from books I read!!
 
 <div class="card-container">
 
-{% for page in site.pages %}
-  {% if page.section == "books" %}
+{% assign books = site.pages | where: "section", "books" | sort: "title" %}
 
-  <a class="card" href="{{ site.baseurl }}{{ page.url }}">
-    <div class="card-title">{{ page.title }}</div>
-    <div class="card-desc">{{ page.description }}</div>
-  </a>
+{% for page in books %}
 
-  {% endif %}
+<a class="card" href="{{ site.baseurl }}{{ page.url }}">
+  <div class="card-title">{{ page.title }}</div>
+  <div class="card-desc">{{ page.description }}</div>
+</a>
+
 {% endfor %}
 
 </div>
