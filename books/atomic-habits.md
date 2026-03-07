@@ -1,3 +1,6 @@
+[Home](../..) | [Books](..) | [Productivity](../../productivity) | [Product](../../product) | [Innovation](../../innovation) | [More](../../more)
+
+---
 # Atomic Habits
 
 Author: James Clear
