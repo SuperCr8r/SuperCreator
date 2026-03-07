@@ -8,3 +8,5 @@ Experiments and ideas related to improving productivity.
 
 - [Focus Systems](p1)
 - [Time Blocking](p2)
+
+{% include footer.md %}
