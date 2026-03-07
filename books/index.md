@@ -1,4 +1,4 @@
-[Home](../) | [Books](../books) | [Productivity](../productivity) | [Product](../product) | [Innovation](../innovation) | [More](../more)
+[Home](../) | [Books](.) | [Productivity](../productivity) | [Product](../product) | [Innovation](../innovation) | [More](../more)
 ---
 
 # Books
