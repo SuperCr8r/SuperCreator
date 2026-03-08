@@ -1,0 +1,18 @@
+{% include navigation.md %}
+
+# {{ page.title }}
+
+{% include book-toc.md %}
+
+## Key Info Book
+
+Author: {{ page.author }}  
+Year: {{ page.year }}  
+Rating: {{ page.rating }}  
+Tags: {{ page.tags }}
+
+---
+
+{{ content }}
+
+{% include footer.md %}
