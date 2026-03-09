@@ -4,6 +4,10 @@ layout: default
 
 {% include navigation.md %}
 
+<div class="book-page">
+
+<div class="book-content">
+
 <h1>{{ page.title }}</h1>
 
 {% include book-toc.md %}
@@ -14,23 +18,29 @@ layout: default
 <li><strong>Author:</strong> {{ page.author }}</li>
 <li><strong>Year:</strong> {{ page.year }}</li>
 <li><strong>Rating:</strong> {{ page.rating }}</li>
-
-<li>
-<strong>Tags:</strong>
-
+<li><strong>Tags:</strong>
 {% for tag in page.tags %}
 <a class="tag" href="/SuperCreator/tags/{{ tag | slugify }}/">{{ tag }}</a>
 {% endfor %}
-
 </li>
-  
 </ul>
 
 <hr>
 
 {{ content }}
 
-<button id="backToTopBtn" title="Go to top">⬆</button>
+<button id="backToTopBtn">⬆</button>
+
+</div>
+
+<div class="book-sidebar">
+<h3>On this page</h3>
+<ul id="section-nav"></ul>
+</div>
+
+</div>
+
 <script src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/section-nav.js' | relative_url }}"></script>
 
 {% include footer.md %}
