@@ -1,4 +1,4 @@
-<div class="book-toc">
+<div id="toc" class="book-toc">
 
 <h3>Jump to Section</h3>
 
