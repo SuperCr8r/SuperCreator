@@ -10,9 +10,9 @@ description: A practical framework for building good habits and breaking bad one
 cover: atomic-habits.jpg
 ---
 
-## TL;DR!!!!
+## TL;DR
 
-### Executive Key Insights!!!!
+### Executive Key Insights
 
 • Small habits compound into massive long-term results  
 • Systems matter more than goals  
