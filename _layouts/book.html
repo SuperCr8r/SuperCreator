@@ -14,7 +14,16 @@ layout: default
 <li><strong>Author:</strong> {{ page.author }}</li>
 <li><strong>Year:</strong> {{ page.year }}</li>
 <li><strong>Rating:</strong> {{ page.rating }}</li>
-<li><strong>Tags:</strong> {{ page.tags }}</li>
+
+<li>
+<strong>Tags:</strong>
+
+{% for tag in page.tags %}
+<a class="tag" href="/SuperCreator/tags/{{ tag | slugify }}/">{{ tag }}</a>
+{% endfor %}
+
+</li>
+  
 </ul>
 
 <hr>
