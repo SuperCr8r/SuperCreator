@@ -120,3 +120,36 @@ box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 #backToTopBtn:hover {
 background-color: #1a252f;
 }
+
+/* Floating content*/
+.book-page {
+display: grid;
+grid-template-columns: 1fr 220px;
+gap: 40px;
+}
+
+.book-sidebar {
+position: sticky;
+top: 120px;
+height: fit-content;
+font-size: 0.9rem;
+}
+
+.book-sidebar ul {
+list-style: none;
+padding-left: 0;
+}
+
+.book-sidebar li {
+margin-bottom: 8px;
+}
+
+.book-sidebar a {
+text-decoration: none;
+color: #2c3e50;
+}
+
+.book-sidebar a.active {
+font-weight: bold;
+color: #0366d6;
+}
