@@ -4,18 +4,20 @@ layout: default
 
 {% include navigation.md %}
 
-# {{ page.title }}
+<h1>{{ page.title }}</h1>
 
 {% include book-toc.md %}
 
-## Key Info Book
+<h2 id="key-info-book">Key Info Book</h2>
 
-Author: {{ page.author }}  
-Year: {{ page.year }}  
-Rating: {{ page.rating }}  
-Tags: {{ page.tags }}
+<ul class="book-meta">
+<li><strong>Author:</strong> {{ page.author }}</li>
+<li><strong>Year:</strong> {{ page.year }}</li>
+<li><strong>Rating:</strong> {{ page.rating }}</li>
+<li><strong>Tags:</strong> {{ page.tags }}</li>
+</ul>
 
----
+<hr>
 
 {{ content }}
 
