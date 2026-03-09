@@ -95,3 +95,24 @@ text-decoration: none;
 .tag:hover {
 background: #dbe7f2;
 }
+
+
+/* Back to top*/
+
+.back-to-top {
+text-align: center;
+margin: 40px 0;
+}
+
+.back-to-top a {
+background: #2c3e50;
+color: white;
+padding: 8px 16px;
+border-radius: 6px;
+text-decoration: none;
+font-size: 0.9rem;
+}
+
+.back-to-top a:hover {
+background: #1a252f;
+}
