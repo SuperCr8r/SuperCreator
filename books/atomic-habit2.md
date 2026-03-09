@@ -299,3 +299,5 @@ After applying Atomic Habits principles, several small habits improved developme
 These small practices improved code quality, learning speed, and collaboration with teammates.
 
 The core takeaway is that becoming a better developer is not about occasional bursts of productivity but about consistent small improvements that compound over time.
+
+---
