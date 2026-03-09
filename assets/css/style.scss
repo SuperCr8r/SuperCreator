@@ -153,3 +153,28 @@ color: #2c3e50;
 font-weight: bold;
 color: #0366d6;
 }
+
+
+/* Adding book cover*/
+.book-header{
+display:flex;
+gap:20px;
+align-items:center;
+margin-bottom:25px;
+}
+
+.book-cover{
+width:140px;
+border-radius:6px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.book-title-area h1{
+margin:0;
+}
+
+.book-meta{
+margin-top:6px;
+font-size:14px;
+color:#555;
+}
