@@ -102,8 +102,9 @@ background: #dbe7f2;
 #backToTopBtn {
 display: none;
 position: fixed;
-bottom: 30px;
-right: 30px;
+top: 50%;
+right: 20px;
+transform: translateY(-50%);
 z-index: 99;
 font-size: 18px;
 border: none;
