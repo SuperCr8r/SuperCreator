@@ -77,3 +77,21 @@ margin-bottom: 20px;
 .book-meta li {
 margin-bottom: 4px;
 }
+
+/* Tag */
+
+.tag {
+display: inline-block;
+background: #eef3f7;
+color: #2c3e50;
+padding: 4px 10px;
+margin-right: 6px;
+margin-top: 4px;
+border-radius: 6px;
+font-size: 0.85rem;
+text-decoration: none;
+}
+
+.tag:hover {
+background: #dbe7f2;
+}
