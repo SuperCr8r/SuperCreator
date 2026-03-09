@@ -1,7 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-const sections = document.querySelectorAll("h2");
 const nav = document.getElementById("section-nav");
+
+// Add page title first
+const pageTitle = document.querySelector("h1");
+
+if (pageTitle) {
+let li = document.createElement("li");
+let a = document.createElement("a");
+
+pageTitle.id = "top";
+
+a.href = "#top";
+a.textContent = pageTitle.textContent;
+
+li.appendChild(a);
+nav.appendChild(li);
+}
+
+// Collect only content sections
+const sections = document.querySelectorAll(".book-content h2");
 
 sections.forEach(section => {
 
@@ -22,6 +40,7 @@ nav.appendChild(li);
 
 });
 
+// Scroll highlight
 window.addEventListener("scroll", () => {
 
 let current = "";
