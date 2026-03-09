@@ -1,4 +1,6 @@
-<h2>Jump to Section</h2>
+<div class="book-toc">
+
+<h3>Jump to Section</h3>
 
 <ul>
 <li><a href="#key-info-book">Key Info</a></li>
@@ -8,5 +10,7 @@
 <li><a href="#blog--applying-atomic-habits-as-a-project-manager-in-it-delivery">PM Application</a></li>
 <li><a href="#blog--atomic-habits-through-the-lens-of-a-software-developer">Developer Application</a></li>
 </ul>
+
+</div>
 
 <hr>
