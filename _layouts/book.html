@@ -8,7 +8,27 @@ layout: default
 
 <div class="book-content">
 
+<div class="book-header">
+
+<img class="book-cover"
+src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
+alt="{{ page.title }}">
+
+<div class="book-title-area">
+
 <h1>{{ page.title }}</h1>
+
+<div class="book-meta">
+
+<strong>Author:</strong> {{ page.author }} |
+<strong>Year:</strong> {{ page.year }} |
+<strong>Rating:</strong> {{ page.rating }}
+
+</div>
+
+</div>
+
+</div>
 
 <h2 id="key-info-book">Key Info Book</h2>
 
