@@ -188,3 +188,11 @@ object-fit:cover;
 border-radius:6px;
 margin-bottom:10px;
 }
+
+/* Responsive stacked cards */
+.card-container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: 25px;
+margin-top: 25px;
+}
