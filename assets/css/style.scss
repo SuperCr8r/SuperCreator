@@ -196,3 +196,41 @@ grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 gap: 25px;
 margin-top: 25px;
 }
+
+/* Improve Card Styling */
+.card {
+display:block;
+background:white;
+border-radius:10px;
+overflow:hidden;
+text-decoration:none;
+color:inherit;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add Hover Effect */
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* Style the Cover */
+.card-cover{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+/* Style the Title & Description */
+.card-title{
+font-weight:600;
+font-size:18px;
+padding:12px 14px 0 14px;
+}
+
+.card-desc{
+font-size:14px;
+color:#666;
+padding:6px 14px 16px 14px;
+}
