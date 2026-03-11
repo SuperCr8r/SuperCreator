@@ -1,12 +1,20 @@
+/* =====================================================
+   FEATURE: Knowledge Hub Search Engine
+   FILE: assets/js/search.js
+   PURPOSE: Client-side search using Lunr.js
+   ===================================================== */
+
 let idx;
 let pages = [];
 
-fetch("/SuperCreator/search.json")
+/* Fetch search index using Jekyll baseurl */
+fetch(window.location.origin + "/SuperCreator/search.json")
 .then(res => res.json())
 .then(data => {
 
 pages = data;
 
+/* Build Lunr index */
 idx = lunr(function () {
 
 this.ref("url");
@@ -19,9 +27,15 @@ data.forEach(doc => this.add(doc));
 
 });
 
+/* Listen for typing in search box */
 document.getElementById("search-input").addEventListener("keyup", function(){
 
 let query = this.value;
+
+if(!query || query.length < 2){
+document.getElementById("search-results").innerHTML = "";
+return;
+}
 
 let results = idx.search(query);
 
