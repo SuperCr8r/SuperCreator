@@ -2,6 +2,7 @@
 
 🏠 <a href="/SuperCreator/">Home</a> |
 📚 <a href="/SuperCreator/books/">Books</a> |
+🏷️ <a href="/SuperCreator/tags/">Topics</a> |
 ⚙️ <a href="/SuperCreator/productivity/">Productivity</a> |
 🧠 <a href="/SuperCreator/product/">Product</a> |
 🚀 <a href="/SuperCreator/innovation/">Innovation</a> |
@@ -10,3 +11,5 @@
 </div>
 
 <hr>
+
+
