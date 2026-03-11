@@ -26,15 +26,22 @@ alt="{{ page.title }}">
 
 </div>
 
+<div class="book-tags">
+
+{% for tag in page.tags %}
+<a class="tag" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">
+{{ tag }}
+</a>
+{% endfor %}
+
+</div>
+
 </div>
 
 </div>
 
-<h2 id="key-info-book">Key Info Book</h2>
-  
-  
-  /*  Related Books Block */
-  
+<hr>
+
 {{ content }}
 
 <hr>
@@ -52,11 +59,9 @@ alt="{{ page.title }}">
 {% assign match = false %}
 
 {% for tag in page.tags %}
-
 {% if book.tags contains tag %}
 {% assign match = true %}
 {% endif %}
-
 {% endfor %}
 
 {% if match %}
