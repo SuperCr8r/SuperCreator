@@ -5,7 +5,12 @@ section: books
 author: James Clear
 year: 2018
 rating: 9
-tags: [habits, productivity, behavior, systems, self-improvement]
+tags:
+ - habits
+ - productivity
+ - behavior
+ - systems
+ - self-improvement
 description: A practical framework for building good habits and breaking bad ones through small, consistent improvements.
 cover: atomic-habits.jpg
 ---
