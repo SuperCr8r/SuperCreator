@@ -252,3 +252,35 @@ background:#0366d6;
 color:white;
 }
 
+/*  Add Styling for Tag Explorer */
+.tag-explorer{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.tag-card{
+display:flex;
+align-items:center;
+justify-content:center;
+height:80px;
+background:#f4f7fb;
+border-radius:10px;
+text-decoration:none;
+color:#2c3e50;
+font-weight:600;
+box-shadow:0 3px 8px rgba(0,0,0,0.08);
+transition:all .2s ease;
+}
+
+.tag-card:hover{
+background:#0366d6;
+color:white;
+transform:translateY(-3px);
+box-shadow:0 6px 14px rgba(0,0,0,0.15);
+}
+
+.tag-name{
+text-transform:capitalize;
+}
