@@ -1,20 +1,18 @@
 /* =====================================================
-   FEATURE: Knowledge Hub Search Engine
-   FILE: assets/js/search.js
-   PURPOSE: Client-side search using Lunr.js
-   ===================================================== */
+FEATURE: Knowledge Hub Autocomplete Search
+FILE: assets/js/search.js
+PURPOSE: Real-time search suggestions using Lunr.js
+===================================================== */
 
 let idx;
 let pages = [];
 
-/* Fetch search index using Jekyll baseurl */
 fetch(window.location.origin + "/SuperCreator/search.json")
 .then(res => res.json())
 .then(data => {
 
 pages = data;
 
-/* Build Lunr index */
 idx = lunr(function () {
 
 this.ref("url");
@@ -27,13 +25,14 @@ data.forEach(doc => this.add(doc));
 
 });
 
-/* Listen for typing in search box */
 document.getElementById("search-input").addEventListener("keyup", function(){
 
-let query = this.value;
+let query = this.value.trim();
 
-if(!query || query.length < 2){
-document.getElementById("search-results").innerHTML = "";
+let resultsContainer = document.getElementById("search-results");
+
+if(query.length < 2){
+resultsContainer.innerHTML = "";
 return;
 }
 
@@ -41,14 +40,20 @@ let results = idx.search(query);
 
 let output = "";
 
-results.forEach(result => {
+results.slice(0,5).forEach(result => {
 
 let page = pages.find(p => p.url === result.ref);
 
-output += `<li><a href="${page.url}">${page.title}</a></li>`;
+output += `
+<li class="search-item">
+<a href="${page.url}">
+${page.title}
+</a>
+</li>
+`;
 
 });
 
-document.getElementById("search-results").innerHTML = output;
+resultsContainer.innerHTML = output;
 
 });
