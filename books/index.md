@@ -12,9 +12,9 @@ This section contains notes and reflections from books I read!!
 
 <a class="card" href="{{ page.url | relative_url }}">
 
-  <img class="card-cover"
-  src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
-  alt="{{ page.title }}">
+<img class="card-cover"
+src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
+alt="{{ page.title }}">
 
   <div class="card-title">{{ page.title }}</div>
 
