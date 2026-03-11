@@ -2,7 +2,7 @@
 
 # Books
 
-This section contains notes and reflections from books I read!!
+This section contains notes and reflections from books I read.
 
 <div class="card-container">
 
@@ -12,13 +12,17 @@ This section contains notes and reflections from books I read!!
 
 <a class="card" href="{{ page.url | relative_url }}">
 
+<div class="card-cover-container">
+
 <img class="card-cover"
 src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
 alt="{{ page.title }}">
 
-  <div class="card-title">{{ page.title }}</div>
+</div>
 
-  <div class="card-desc">{{ page.description }}</div>
+<div class="card-title">{{ page.title }}</div>
+
+<div class="card-desc">{{ page.description }}</div>
 
 </a>
 
