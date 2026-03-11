@@ -1,6 +1,12 @@
 ---
+# =====================================
+# FEATURE: Knowledge Hub Search Page
+# PURPOSE: Enables Lunr.js full-site search
+# URL: /search/
+# =====================================
 layout: default
 title: Search
+permalink: /search/
 ---
 
 {% include navigation.md %}
