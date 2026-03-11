@@ -1,9 +1,4 @@
 ---
-# =====================================
-# FEATURE: Knowledge Hub Search Page
-# PURPOSE: Enables Lunr.js full-site search
-# URL: /search/
-# =====================================
 layout: default
 title: Search
 permalink: /search/
@@ -13,9 +8,24 @@ permalink: /search/
 
 # Search Knowledge Hub
 
-<input type="text" id="search-input" placeholder="Search books, ideas, topics..." />
+<!-- =========================================
+FEATURE: Search Autocomplete UI
+PURPOSE: Enables dropdown suggestions while typing
+FILE: search.md
+========================================= -->
 
-<ul id="search-results"></ul>
+<div class="search-box">
+
+<input
+type="text"
+id="search-input"
+placeholder="Search books, ideas, topics..."
+autocomplete="off"
+/>
+
+<ul id="search-results" class="search-dropdown"></ul>
+
+</div>
 
 {% include footer.md %}
 
