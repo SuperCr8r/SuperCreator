@@ -31,25 +31,8 @@ alt="{{ page.title }}">
 </div>
 
 <h2 id="key-info-book">Key Info Book</h2>
-
-<ul class="book-meta">
-<li><strong>Author:</strong> {{ page.author }}</li>
-<li><strong>Year:</strong> {{ page.year }}</li>
-<li><strong>Rating:</strong> {{ page.rating }}</li>
-<li><strong>Tags:</strong>
-
-{% for tag in page.tags %}
-<a class="tag"
-href="{{ '/tags/' | append: tag | append: '.html' | relative_url }}">
-{{ tag }}
-</a>
-{% endfor %}
-
-</li>
-</ul>
-
-<hr>
-
+  
+  
   /*  Related Books Block */
   
 {{ content }}
