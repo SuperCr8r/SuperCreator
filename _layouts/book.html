@@ -50,7 +50,51 @@ href="{{ '/tags/' | append: tag | append: '.html' | relative_url }}">
 
 <hr>
 
+  /*  Related Books Block */
+  
 {{ content }}
+
+<hr>
+
+<h2>Related Books</h2>
+
+<div class="card-container">
+
+{% assign related = site.pages | where: "section","books" %}
+
+{% for book in related %}
+
+{% if book.url != page.url %}
+
+{% assign match = false %}
+
+{% for tag in page.tags %}
+
+{% if book.tags contains tag %}
+{% assign match = true %}
+{% endif %}
+
+{% endfor %}
+
+{% if match %}
+
+<a class="card" href="{{ book.url | relative_url }}">
+
+<img class="card-cover"
+src="{{ '/assets/images/books/' | append: book.cover | relative_url }}"
+alt="{{ book.title }}">
+
+<div class="card-title">{{ book.title }}</div>
+
+</a>
+
+{% endif %}
+
+{% endif %}
+
+{% endfor %}
+
+</div>
 
 <button id="backToTopBtn">⬆</button>
 
