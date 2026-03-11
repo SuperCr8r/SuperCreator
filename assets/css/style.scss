@@ -459,3 +459,16 @@ color:#333;
 .book-tags .tag:hover{
 background:#dde6f2;
 }
+
+/* =========================================
+FEATURE: Book Page Cover Fix
+PURPOSE: Preserve original image ratio
+========================================= */
+
+.book-cover{
+width:180px;
+height:auto;
+object-fit:contain;
+border-radius:6px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
