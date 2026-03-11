@@ -234,3 +234,21 @@ font-size:14px;
 color:#666;
 padding:6px 14px 16px 14px;
 }
+
+/*  Style the Tag Buttons */
+.tag{
+display:inline-block;
+background:#eef2f7;
+color:#333;
+padding:4px 10px;
+margin:4px 4px 0 0;
+border-radius:20px;
+font-size:12px;
+text-decoration:none;
+}
+
+.tag:hover{
+background:#0366d6;
+color:white;
+}
+
