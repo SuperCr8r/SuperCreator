@@ -368,3 +368,59 @@ display:block;
 .search-item:hover{
 background:#f5f5f5;
 }
+
+
+/* =================================================
+FEATURE: Search Dropdown UI Fix
+PURPOSE: Fix dropdown width, spacing and overlap
+FILE: assets/css/style.scss
+================================================= */
+
+.search-box{
+  position: relative;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+#search-input{
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  border:2px solid #ccc;
+  border-radius:6px;
+}
+
+.search-dropdown{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:white;
+  border:1px solid #ddd;
+  border-top:none;
+  border-radius:0 0 6px 6px;
+  list-style:none;
+  margin:0;
+  padding:0;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+
+.search-dropdown li{
+  padding:12px 16px;
+  border-bottom:1px solid #eee;
+}
+
+.search-dropdown li:last-child{
+  border-bottom:none;
+}
+
+.search-dropdown li a{
+  text-decoration:none;
+  font-weight:600;
+  color:#2a6ebb;
+}
+
+.search-dropdown li:hover{
+  background:#f5f7fa;
+}
