@@ -4,9 +4,10 @@
 
 @import "{{ site.theme }}";
 
-/* ==========================================
+/* ======================================================
 GENERAL SITE TWEAKS
-========================================== */
+Reduces large hero header and adjusts title size
+====================================================== */
 
 .page-header{
 padding:1.5rem 1rem;
@@ -16,9 +17,9 @@ padding:1.5rem 1rem;
 font-size:2.2rem;
 }
 
-/* ==========================================
+/* ======================================================
 CUSTOM FOOTER
-========================================== */
+====================================================== */
 
 .site-footer-custom{
 margin-top:3rem;
@@ -34,9 +35,10 @@ border-radius:6px;
 display:none;
 }
 
-/* ==========================================
+/* ======================================================
 BOOK GRID LAYOUT
-========================================== */
+Used on Books page and Related Books
+====================================================== */
 
 .card-container{
 display:grid;
@@ -45,9 +47,9 @@ gap:25px;
 margin-top:25px;
 }
 
-/* ==========================================
+/* ======================================================
 BOOK CARD
-========================================== */
+====================================================== */
 
 .card{
 display:block;
@@ -56,8 +58,9 @@ border-radius:10px;
 overflow:hidden;
 text-decoration:none;
 color:inherit;
+border:1px solid #e6e6e6;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
-transition:transform .2s ease,box-shadow .2s ease;
+transition:transform .2s ease, box-shadow .2s ease;
 }
 
 .card:hover{
@@ -65,18 +68,24 @@ transform:translateY(-6px);
 box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
 
-/* ==========================================
-BOOK COVER FIX (CRITICAL)
-========================================== */
+/* ======================================================
+BOOK COVER CONTAINER
+Ensures proper 2:3 book ratio and visible border
+====================================================== */
 
 .card-cover-container{
+
 width:100%;
 aspect-ratio:2/3;
 overflow:hidden;
-background:#f3f3f3;
+
+background:white;
+border-bottom:1px solid #e6e6e6;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 }
 
 .card-cover{
@@ -85,9 +94,9 @@ height:100%;
 object-fit:cover;
 }
 
-/* ==========================================
+/* ======================================================
 CARD TEXT
-========================================== */
+====================================================== */
 
 .card-title{
 font-weight:600;
@@ -101,19 +110,21 @@ color:#666;
 padding:6px 14px 16px 14px;
 }
 
-/* ==========================================
+/* ======================================================
 BOOK PAGE LAYOUT
-========================================== */
+Two column layout (content + floating navigation)
+====================================================== */
 
 .book-page{
 display:grid;
-grid-template-columns:1fr 220px;
+grid-template-columns:minmax(0,1fr) 220px;
 gap:40px;
 }
 
-/* ==========================================
+/* ======================================================
 BOOK HEADER
-========================================== */
+Cover + title area
+====================================================== */
 
 .book-header{
 display:flex;
@@ -140,9 +151,9 @@ font-size:14px;
 color:#555;
 }
 
-/* ==========================================
-TAGS
-========================================== */
+/* ======================================================
+TAG STYLING
+====================================================== */
 
 .tag{
 display:inline-block;
@@ -160,9 +171,9 @@ background:#0366d6;
 color:white;
 }
 
-/* ==========================================
+/* ======================================================
 TAG EXPLORER PAGE
-========================================== */
+====================================================== */
 
 .tag-explorer{
 display:grid;
@@ -192,9 +203,9 @@ transform:translateY(-3px);
 box-shadow:0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* ==========================================
+/* ======================================================
 SEARCH UI
-========================================== */
+====================================================== */
 
 .search-box{
 position:relative;
@@ -243,33 +254,21 @@ color:#2a6ebb;
 
 .search-dropdown li:hover
 
-/* ==========================================
-BACK TO TOP BUTTON
-========================================== */
+/* ======================================================
+CONTENT SECTION DIVIDERS
+Restores divider lines between book sections
+====================================================== */
 
-#backToTopBtn{
-display:none;
-position:fixed;
-top:50%;
-right:20px;
-transform:translateY(-50%);
-z-index:99;
-font-size:18px;
-border:none;
-outline:none;
-background:#2c3e50;
-color:white;
-cursor:pointer;
-padding:12px 16px;
-border-radius:50%;
-box-shadow:0 4px 8px rgba(0,0,0,0.2);
+.book-content hr{
+margin:30px 0;
+border:0;
+border-top:1px solid #e5e5e5;
 }
 
-#backToTopBtn:hover
-
-/* ==========================================
+/* ======================================================
 SIDEBAR NAVIGATION
-========================================== */
+Floating "On this page"
+====================================================== */
 
 .book-sidebar{
 position:sticky;
