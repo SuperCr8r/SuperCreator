@@ -68,9 +68,13 @@ alt="{{ page.title }}">
 
 <a class="card" href="{{ book.url | relative_url }}">
 
+<div class="card-cover-container">
+
 <img class="card-cover"
 src="{{ '/assets/images/books/' | append: book.cover | relative_url }}"
 alt="{{ book.title }}">
+
+</div>
 
 <div class="card-title">{{ book.title }}</div>
 
