@@ -295,3 +295,34 @@ color:#2c3e50;
 font-weight:bold;
 color:#0366d6;
 }
+
+
+/* ==========================================
+FEATURE: Read Aloud Buttons
+========================================== */
+
+#readAloudBtn, #stopReadingBtn{
+margin-top:10px;
+margin-right:10px;
+padding:8px 14px;
+border:none;
+border-radius:6px;
+background:#0366d6;
+color:white;
+cursor:pointer;
+font-size:14px;
+}
+
+#stopReadingBtn{
+background:#555;
+}
+
+#readAloudBtn:hover{
+background:#024ea2;
+}
+
+#stopReadingBtn:hover{
+background:#333;
+}
+
+
