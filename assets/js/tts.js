@@ -7,7 +7,7 @@ let utterance;
 
 document.getElementById("readAloudBtn").addEventListener("click", () => {
 
-  const content = document.querySelector(".book-content").innerText;
+  const content = document.querySelector(".book-content").querySelector("article")?.innerText || document.querySelector(".book-content").innerText;
 
   utterance = new SpeechSynthesisUtterance(content);
 
