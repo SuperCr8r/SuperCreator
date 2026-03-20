@@ -1,103 +1,107 @@
 /* ==========================================
-FEATURE: Smart Read Aloud (Filtered Content)
-Reads only meaningful sections
+TTS ENGINE (Stable Version)
 ========================================== */
 
 let utterance;
+
+/* Wait for DOM */
+document.addEventListener("DOMContentLoaded", function(){
+
+  const readBtn = document.getElementById("readAloudBtn");
+  const stopBtn = document.getElementById("stopReadingBtn");
+
+  if(readBtn){
+    readBtn.addEventListener("click", startReading);
+  }
+
+  if(stopBtn){
+    stopBtn.addEventListener("click", stopReading);
+  }
+
+});
+
+
+/* ==========================================
+READ FULL CONTENT (FILTERED)
+========================================== */
 
 function getReadableContent(){
 
   let content = "";
 
-  // TLDR
-  const tldr = document.querySelector("#tldr");
-  if(tldr){
-    content += "T L D R. " + tldr.innerText + " ";
-  }
+  const sections = ["tldr","summary","chapters"];
 
-  // Summary
-  const summary = document.querySelector("#summary");
-  if(summary){
-    content += "Summary. " + summary.innerText + " ";
-  }
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el){
+      content += el.innerText + " ";
+    }
+  });
 
-  // Chapter-wise Summary
-  const chapters = document.querySelector("#chapters");
-  if(chapters){
-    content += "Chapter wise summary. " + chapters.innerText + " ";
-  }
-
-  // Blogs (multiple)
-  const blogs = document.querySelectorAll(".blog");
-  if(blogs.length > 0){
-    blogs.forEach((blog, index) => {
-      content += "Blog " + (index + 1) + ". " + blog.innerText + " ";
-    });
-  }
+  document.querySelectorAll(".blog").forEach(blog => {
+    content += blog.innerText + " ";
+  });
 
   return content;
 }
 
-document.getElementById("readAloudBtn").addEventListener("click", () => {
+function startReading(){
 
   const content = getReadableContent();
 
   if(!content.trim()){
-    alert("No readable content found!");
+    alert("No readable content found");
     return;
   }
 
   utterance = new SpeechSynthesisUtterance(content);
-
   utterance.rate = 1;
   utterance.pitch = 1;
-  utterance.lang = "en-US";
 
-  speechSynthesis.cancel(); // stop previous if running
-  speechSynthesis.speak(utterance);
-
-});
-
-document.getElementById("stopReadingBtn").addEventListener("click", () => {
   speechSynthesis.cancel();
-});
+  speechSynthesis.speak(utterance);
+}
+
+function stopReading(){
+  speechSynthesis.cancel();
+}
 
 
 /* ==========================================
-FEATURE: Section Read + Auto Scroll + Highlight
+SECTION READ + SCROLL + HIGHLIGHT
 ========================================== */
 
 function readSection(id){
 
-  const section = document.getElementById(id);
+  let target;
 
-  if(!section){
+  if(id === "blog"){
+    target = document.querySelector(".blog");
+  } else {
+    target = document.getElementById(id);
+  }
+
+  if(!target){
     alert("Section not found");
     return;
   }
 
-  // Remove previous highlights
-  document.querySelectorAll(".reading-active").forEach(el => {
+  // remove previous highlight
+  document.querySelectorAll(".reading-active").forEach(el=>{
     el.classList.remove("reading-active");
   });
 
-  // Add highlight
-  section.classList.add("reading-active");
+  target.classList.add("reading-active");
 
-  // Scroll to section
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
+  target.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
   });
 
-  const text = section.innerText;
+  const speech = new SpeechSynthesisUtterance(target.innerText);
 
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "en-US";
-
-  // When reading ends → remove highlight
   speech.onend = () => {
-    section.classList.remove("reading-active");
+    target.classList.remove("reading-active");
   };
 
   speechSynthesis.cancel();
