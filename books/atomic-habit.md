@@ -18,7 +18,7 @@ cover: atomic-habits.jpg
 ## TL;DR
 <div id="tldr">
 
-### Executive Key Insights....!!!!
+### Executive Key Insights....????
 
 • Small habits compound into massive long-term results  
 • Systems matter more than goals  
@@ -47,10 +47,6 @@ cover: atomic-habits.jpg
 • Remove cues that trigger bad habits  
 
 </div>
-
-
-
-## Summary
 
 ## Summary
 <div id="summary">
