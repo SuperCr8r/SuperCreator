@@ -61,3 +61,25 @@ document.getElementById("readAloudBtn").addEventListener("click", () => {
 document.getElementById("stopReadingBtn").addEventListener("click", () => {
   speechSynthesis.cancel();
 });
+
+/* ==========================================
+FEATURE: Section-wise Reading
+========================================== */
+
+function readSection(id){
+
+  const section = document.getElementById(id);
+
+  if(!section){
+    alert("Section not found");
+    return;
+  }
+
+  const text = section.innerText;
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(speech);
+}
