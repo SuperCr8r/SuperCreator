@@ -66,6 +66,10 @@ document.getElementById("stopReadingBtn").addEventListener("click", () => {
 FEATURE: Section-wise Reading
 ========================================== */
 
+/* ==========================================
+FEATURE: Section Read + Auto Scroll + Highlight
+========================================== */
+
 function readSection(id){
 
   const section = document.getElementById(id);
@@ -75,10 +79,29 @@ function readSection(id){
     return;
   }
 
+  // Remove previous highlights
+  document.querySelectorAll(".reading-active").forEach(el => {
+    el.classList.remove("reading-active");
+  });
+
+  // Add highlight
+  section.classList.add("reading-active");
+
+  // Scroll to section
+  section.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
   const text = section.innerText;
 
   const speech = new SpeechSynthesisUtterance(text);
   speech.lang = "en-US";
+
+  // When reading ends → remove highlight
+  speech.onend = () => {
+    section.classList.remove("reading-active");
+  };
 
   speechSynthesis.cancel();
   speechSynthesis.speak(speech);
