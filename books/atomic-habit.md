@@ -16,6 +16,7 @@ cover: atomic-habits.jpg
 ---
 
 ## TL;DR
+<div id="tldr">
 
 ### Executive Key Insights....!!!!
 
@@ -45,9 +46,14 @@ cover: atomic-habits.jpg
 • Stack new habits onto existing routines  
 • Remove cues that trigger bad habits  
 
+</div>
+
 
 
 ## Summary
+
+## Summary
+<div id="summary">
 
 ### Executive Insight
 
@@ -138,9 +144,12 @@ Leaders can apply Atomic Habits by designing environments and systems that reinf
 • Reduce friction for high-impact work  
 • Build systems that reinforce consistent behaviors  
 
+</div>
+
 
 
 ## Chapter-wise Summary
+<div id="chapters">
 
 ### Chapter 1 — The Surprising Power of Atomic Habits
 
@@ -264,9 +273,11 @@ Immediate rewards reinforce habits.
 
 Habit tracking increases consistency.
 
+</div>
 
 
 ## Blog — Applying Atomic Habits as a Project Manager in IT Delivery
+<div class="blog">
 
 ### Perspective: A Project Manager with 10 Years in IT Services
 
@@ -285,9 +296,11 @@ Over time these small practices significantly improved project predictability an
 
 The key lesson for project managers is to design systems that reinforce productive behaviors rather than relying on motivation alone.
 
+</div>
 
 
 ## Blog — Atomic Habits Through the Lens of a Software Developer
+<div class="blog">
 
 ### Perspective: A Software Developer with 5 Years of Experience
 
@@ -304,5 +317,9 @@ After applying Atomic Habits principles, several small habits improved developme
 These small practices improved code quality, learning speed, and collaboration with teammates.
 
 The core takeaway is that becoming a better developer is not about occasional bursts of productivity but about consistent small improvements that compound over time.
+
+</div>
+
+
 
 
