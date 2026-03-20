@@ -348,3 +348,18 @@ font-size:13px;
 .tts-controls button:hover{
 background:#024ea2;
 }
+
+/* ==========================================
+READING HIGHLIGHT EFFECT
+========================================== */
+
+.reading-active{
+background:#fff8dc;
+border-left:4px solid #f4b400;
+padding-left:12px;
+transition:all 0.3s ease;
+}
+
+.book-content{
+scroll-margin-top:80px;
+}
