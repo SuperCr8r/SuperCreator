@@ -10,6 +10,20 @@ layout: default
 
 <div class="book-header">
 
+  <!-- ==========================================
+FEATURE: Section-wise Read Buttons
+========================================== -->
+
+<div class="tts-controls">
+
+<button onclick="readSection('tldr')">🔊 TL;DR</button>
+<button onclick="readSection('summary')">🔊 Summary</button>
+<button onclick="readSection('chapters')">🔊 Chapters</button>
+<button onclick="readSection('blog')">🔊 Blog</button>
+
+</div>
+  
+  
 <img class="book-cover"
 src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
 alt="{{ page.title }}">
