@@ -62,9 +62,6 @@ document.getElementById("stopReadingBtn").addEventListener("click", () => {
   speechSynthesis.cancel();
 });
 
-/* ==========================================
-FEATURE: Section-wise Reading
-========================================== */
 
 /* ==========================================
 FEATURE: Section Read + Auto Scroll + Highlight
