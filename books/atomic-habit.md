@@ -18,7 +18,7 @@ cover: atomic-habits.jpg
 ## TL;DR
 <span id="tldr"></span>
 
-### Executive Key Insights
+### Executive Key Insights????
 
 • Small habits compound into massive long-term results  
 
@@ -276,12 +276,9 @@ Examples implemented:
 
 These practices significantly improved predictability and reduced escalations.
 
-</div>
-
 
 ---
 
-<div class="blog">
 
 ### Atomic Habits Through the Lens of a Software Developer
 
