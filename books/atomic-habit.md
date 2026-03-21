@@ -16,20 +16,27 @@ cover: atomic-habits.jpg
 ---
 
 ## TL;DR
-<div id="tldr">
+<span id="tldr"></span>
 
-### Executive Key Insights ....????
+### Executive Key Insights
 
 • Small habits compound into massive long-term results  
+
 • Systems matter more than goals  
+
 • Identity-based habits drive lasting behavioral change  
+
 
 ### Practical Takeaways
 
 • Improve by 1% every day  
+
 • Design environments that make good habits easy  
+
 • Reduce friction for positive behaviors  
+
 • Track habits consistently  
+
 
 ### Top 3 Quotes
 
@@ -39,19 +46,22 @@ cover: atomic-habits.jpg
 
 > “Habits are the compound interest of self-improvement.”
 
+
 ### Key Things To Do
 
 • Define the identity you want to become  
+
 • Build systems rather than focusing only on goals  
+
 • Stack new habits onto existing routines  
+
 • Remove cues that trigger bad habits  
 
-</div>
 
 ---
 
 ## Summary
-<div id="summary">
+<span id="summary"></span>
 
 ### Executive Insight
 
@@ -59,7 +69,6 @@ Atomic Habits explains how small behavioral changes compound into extraordinary 
 
 The book emphasizes that long-term improvement does not come from dramatic change but from consistent small improvements that compound over time.
 
----
 
 ### Background About the Book
 
@@ -67,7 +76,6 @@ Atomic Habits was published in 2018 and quickly became one of the most influenti
 
 The book became widely popular because of its clear frameworks and practical advice that readers can immediately apply.
 
----
 
 ### Author Background
 
@@ -75,7 +83,6 @@ James Clear is a writer and speaker focused on habits, decision-making, and cont
 
 He is known for simplifying complex concepts about behavior change into practical frameworks that individuals and organizations can apply.
 
----
 
 ### Book's Target Audience
 
@@ -84,19 +91,16 @@ He is known for simplifying complex concepts about behavior change into practica
 • Individuals trying to build or break habits  
 • Students of behavioral psychology and self-improvement  
 
----
 
 ### Value to Audience
 
 Readers gain a practical system for building good habits and eliminating bad ones. The book provides frameworks that can be applied to personal productivity, leadership, health, and learning.
 
----
 
 ### Reception of the Book
 
 Atomic Habits became an international bestseller and has sold millions of copies worldwide. It has been widely praised for its actionable advice and clear writing style.
 
----
 
 ### Why the Reception Was Positive
 
@@ -104,7 +108,6 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Scientific research supporting habit formation  
 • Clear storytelling and relatable examples  
 
----
 
 ### Why This Book Was a Success
 
@@ -112,7 +115,6 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Universal relevance to personal and professional life  
 • Clear explanation of complex behavioral concepts  
 
----
 
 ### Why This Book Is Good
 
@@ -120,7 +122,6 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Easy-to-understand explanations  
 • Strong integration of psychology and habit science  
 
----
 
 ### Why This Book Is Bad (Devil's Advocate)
 
@@ -128,13 +129,11 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Concepts may feel obvious to readers familiar with behavioral psychology  
 • Examples may feel simplified for advanced readers  
 
----
 
 ### What Are Takeaways for a Leader
 
 Leaders can apply Atomic Habits by designing environments and systems that reinforce desired behaviors. Instead of relying on motivation, organizations can build processes that make good habits automatic.
 
----
 
 ### What Exercises I Should Do as a Leader
 
@@ -142,12 +141,11 @@ Leaders can apply Atomic Habits by designing environments and systems that reinf
 • Reduce friction for high-impact work  
 • Build systems that reinforce consistent behaviors  
 
-</div>
 
 ---
 
 ## Chapter-wise Summary
-<div id="chapters">
+<span id="chapters"></span>
 
 ### Chapter 1 — The Surprising Power of Atomic Habits
 
@@ -169,6 +167,7 @@ Marginal Gains
 **Executive Use**  
 Focus on continuous improvement in teams and processes.
 
+
 ---
 
 ### Chapter 2 — Identity-Based Habits
@@ -188,6 +187,7 @@ Identity-Based Behavior Change
 **Executive Use**  
 Build identity-driven cultures in teams.
 
+
 ---
 
 ### Chapter 3 — The Four Laws of Behavior Change
@@ -204,6 +204,7 @@ Habits become easier when the environment supports them.
 **Executive Use**  
 Design environments that encourage productive behaviors.
 
+
 ---
 
 ### Chapter 4 — Make It Obvious
@@ -217,6 +218,7 @@ Environment design is more powerful than motivation.
 **Example**  
 Leaving workout clothes visible increases exercise likelihood.
 
+
 ---
 
 ### Chapter 5 — Make It Attractive
@@ -226,6 +228,7 @@ Habits stick when they are appealing.
 
 **Key Learning**  
 Pair habits with activities you enjoy.
+
 
 ---
 
@@ -237,6 +240,7 @@ Reduce friction to increase habit adoption.
 **Key Learning**  
 Start with habits that take less than two minutes.
 
+
 ---
 
 ### Chapter 7 — Make It Satisfying
@@ -247,12 +251,11 @@ Immediate rewards reinforce habits.
 **Key Learning**  
 Habit tracking increases consistency.
 
-</div>
 
 ---
 
 ## Blogs
-<div id="blogs">
+<span id="blogs"></span>
 
 <div class="blog">
 
@@ -275,6 +278,7 @@ These practices significantly improved predictability and reduced escalations.
 
 </div>
 
+
 ---
 
 <div class="blog">
@@ -294,7 +298,5 @@ Applied habits:
 • Two-minute documentation rule  
 
 These improved code quality, learning speed, and collaboration.
-
-</div>
 
 </div>
