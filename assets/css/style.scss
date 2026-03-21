@@ -1,52 +1,190 @@
+---
+---
+@import "{{ site.theme }}";
+
 /* ==========================================
-FIX: TTS BUTTON LAYOUT
+GENERAL
+========================================== */
+
+.page-header{
+padding:1.5rem 1rem;
+}
+
+.project-name{
+font-size:2.2rem;
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.site-footer-custom{
+margin-top:3rem;
+padding:1.2rem;
+text-align:center;
+font-size:0.9rem;
+background:#2c3e50;
+color:white;
+border-radius:6px;
+}
+
+.site-footer-credits{
+display:none;
+}
+
+/* ==========================================
+BOOK GRID (FIXED)
+========================================== */
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+margin-top:25px;
+}
+
+/* ==========================================
+CARD
+========================================== */
+
+.card{
+display:block;
+background:white;
+border-radius:10px;
+overflow:hidden;
+text-decoration:none;
+color:inherit;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* COVER FIX */
+.card-cover-container{
+width:100%;
+aspect-ratio:2/3;
+overflow:hidden;
+background:#f3f3f3;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-cover{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ==========================================
+BOOK PAGE LAYOUT (FIXED)
+========================================== */
+
+.book-page{
+display:grid;
+grid-template-columns:minmax(0,1fr) 250px;
+gap:40px;
+}
+
+.book-content{
+min-width:0;
+}
+
+/* ==========================================
+HEADER
+========================================== */
+
+.book-header{
+display:flex;
+align-items:flex-start;
+gap:30px;
+margin-bottom:20px;
+}
+
+.book-cover{
+width:180px;
+height:auto;
+object-fit:contain;
+border-radius:6px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.book-meta{
+margin-top:6px;
+font-size:14px;
+color:#555;
+}
+
+/* ==========================================
+TAGS
+========================================== */
+
+.tag{
+display:inline-block;
+background:#eef2f7;
+padding:5px 10px;
+margin:4px;
+border-radius:20px;
+font-size:12px;
+text-decoration:none;
+color:#333;
+}
+
+/* ==========================================
+TTS BUTTONS
 ========================================== */
 
 .tts-controls{
-  margin-top:12px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
+margin-top:10px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
 }
 
 .tts-controls button{
-  background:#0366d6;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
+background:#0366d6;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
 }
 
 .tts-controls button:hover{
-  background:#024ea2;
+background:#024ea2;
 }
 
 /* ==========================================
-FIX: SECTION DIVIDER
+DIVIDER
 ========================================== */
 
 .section-divider{
-  border:none;
-  border-top:1px solid #e0e0e0;
-  margin:25px 0;
+border:none;
+border-top:1px solid #e0e0e0;
+margin:25px 0;
 }
 
 /* ==========================================
-FIX: HIGHLIGHT ACTIVE READING
-========================================== */
-
-.reading-active{
-  background:#fff8dc;
-  padding:10px;
-  border-left:4px solid #0366d6;
-}
-
-/* ==========================================
-FIX: SIDEBAR (STICKY, NOT FIXED)
+SIDEBAR (FIXED)
 ========================================== */
 
 .book-sidebar{
-  position:sticky;
-  top:100px;
+position:sticky;
+top:100px;
+height:fit-content;
+font-size:0.9rem;
+}
+
+/* ==========================================
+READING HIGHLIGHT
+========================================== */
+
+.reading-active{
+background:#fff3cd;
+padding:10px;
+border-left:4px solid #0366d6;
 }
