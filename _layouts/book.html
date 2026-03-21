@@ -1,24 +1,20 @@
---- 
-layout: default 
+---
+layout: default
 ---
 
 {% include navigation.md %}
 
 <div class="book-page">
 
+<!-- ================= LEFT CONTENT ================= -->
 <div class="book-content">
 
-<!-- ==========================================
-BOOK HEADER
-========================================== -->
 <div class="book-header">
 
-  <!-- Cover -->
   <img class="book-cover"
   src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
   alt="{{ page.title }}">
 
-  <!-- Title + Meta -->
   <div class="book-title-area">
 
     <h1>{{ page.title }}</h1>
@@ -29,7 +25,7 @@ BOOK HEADER
       <strong>Rating:</strong> {{ page.rating }}
     </div>
 
-    <!-- Tags -->
+    <!-- TAGS -->
     <div class="book-tags">
       {% for tag in page.tags %}
       <a class="tag" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">
@@ -38,12 +34,12 @@ BOOK HEADER
       {% endfor %}
     </div>
 
-    <!-- TTS Controls -->
+    <!-- ================= TTS CONTROLS ================= -->
     <div class="tts-controls">
       <button onclick="readSection('tldr')">🔊 TL;DR</button>
       <button onclick="readSection('summary')">🔊 Summary</button>
       <button onclick="readSection('chapters')">🔊 Chapters</button>
-      <button onclick="readSection('blog')">🔊 Blog</button>
+      <button onclick="readSection('blogs')">🔊 Blogs</button>
       <button id="readAloudBtn">🔊 Read All</button>
       <button id="stopReadingBtn">⏹ Stop</button>
     </div>
@@ -58,9 +54,7 @@ BOOK HEADER
 
 <hr class="section-divider">
 
-<!-- ==========================================
-RELATED BOOKS
-========================================== -->
+<!-- ================= RELATED BOOKS ================= -->
 <h2>Related Books</h2>
 
 <div class="card-container">
@@ -99,12 +93,10 @@ RELATED BOOKS
 
 </div>
 
-<!-- ==========================================
-SIDEBAR
-========================================== -->
+<!-- ================= RIGHT SIDEBAR ================= -->
 <div class="book-sidebar">
-<h3>On this page</h3>
-<ul id="section-nav"></ul>
+  <h3>On this page</h3>
+  <ul id="section-nav"></ul>
 </div>
 
 </div>
