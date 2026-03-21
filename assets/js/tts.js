@@ -1,94 +1,133 @@
 /* ==========================================
-STABLE TTS ENGINE (FULL FIX)
+ADVANCED TTS (LINE LEVEL + AUTO SCROLL)
 ========================================== */
 
-let utterance;
-
-/* DOM READY */
-document.addEventListener("DOMContentLoaded", function(){
-
-  const readBtn = document.getElementById("readAloudBtn");
-  const stopBtn = document.getElementById("stopReadingBtn");
-
-  if(readBtn){
-    readBtn.addEventListener("click", readAll);
-  }
-
-  if(stopBtn){
-    stopBtn.addEventListener("click", () => speechSynthesis.cancel());
-  }
-
-});
+let speechQueue = [];
+let isReading = false;
 
 /* ==========================================
-READ ALL CONTENT
+HELPER: GET TEXT BLOCKS
 ========================================== */
 
-function readAll(){
+function getBlocksFromSection(startId){
 
-  let content = "";
+  const start = document.getElementById(startId);
+  if(!start) return [];
 
-  const sections = ["tldr", "summary", "chapters"];
+  let blocks = [];
+  let node = start.parentElement.nextElementSibling;
 
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if(el){
-      content += el.innerText + " ";
+  while(node && node.tagName !== "HR" && !node.id){
+
+    if(node.innerText.trim()){
+      blocks.push(node);
     }
-  });
 
-  document.querySelectorAll(".blog").forEach(blog => {
-    content += blog.innerText + " ";
-  });
-
-  if(!content.trim()){
-    alert("No readable content found");
-    return;
+    node = node.nextElementSibling;
   }
 
-  utterance = new SpeechSynthesisUtterance(content);
-
-  speechSynthesis.cancel();
-  speechSynthesis.speak(utterance);
+  return blocks;
 }
 
 /* ==========================================
-READ SINGLE SECTION
+READ SECTION (LINE LEVEL)
 ========================================== */
 
 function readSection(id){
 
-  let element;
+  stopReading();
+
+  let blocks = [];
 
   if(id === "blogs"){
-    element = document.querySelector(".blog");
+    document.querySelectorAll(".blog").forEach(blog=>{
+      blocks.push(blog);
+    });
   } else {
-    element = document.getElementById(id);
+    blocks = getBlocksFromSection(id);
   }
 
-  if(!element){
-    alert("Section not found");
+  speakBlocks(blocks);
+}
+
+/* ==========================================
+READ ALL
+========================================== */
+
+function readAll(){
+
+  stopReading();
+
+  let blocks = [];
+
+  ["tldr","summary","chapters"].forEach(id=>{
+    blocks = blocks.concat(getBlocksFromSection(id));
+  });
+
+  document.querySelectorAll(".blog").forEach(blog=>{
+    blocks.push(blog);
+  });
+
+  speakBlocks(blocks);
+}
+
+/* ==========================================
+SPEAK BLOCKS WITH SCROLL + HIGHLIGHT
+========================================== */
+
+function speakBlocks(blocks){
+
+  if(!blocks.length){
+    alert("No readable content found");
     return;
   }
 
-  /* REMOVE OLD HIGHLIGHT */
+  isReading = true;
+
+  let index = 0;
+
+  function speakNext(){
+
+    if(index >= blocks.length || !isReading){
+      return;
+    }
+
+    const block = blocks[index];
+
+    // Remove old highlight
+    document.querySelectorAll(".reading-active").forEach(el=>{
+      el.classList.remove("reading-active");
+    });
+
+    block.classList.add("reading-active");
+
+    block.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    const utter = new SpeechSynthesisUtterance(block.innerText);
+
+    utter.onend = () => {
+      index++;
+      speakNext();
+    };
+
+    speechSynthesis.speak(utter);
+  }
+
+  speakNext();
+}
+
+/* ==========================================
+STOP
+========================================== */
+
+function stopReading(){
+  isReading = false;
+  speechSynthesis.cancel();
+
   document.querySelectorAll(".reading-active").forEach(el=>{
     el.classList.remove("reading-active");
   });
-
-  element.classList.add("reading-active");
-
-  element.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-  const speech = new SpeechSynthesisUtterance(element.innerText);
-
-  speech.onend = () => {
-    element.classList.remove("reading-active");
-  };
-
-  speechSynthesis.cancel();
-  speechSynthesis.speak(speech);
 }
