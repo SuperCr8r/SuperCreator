@@ -18,7 +18,7 @@ cover: atomic-habits.jpg
 ## TL;DR
 <div id="tldr">
 
-### Executive Key Insights....????
+### Executive Key Insights ....????
 
 • Small habits compound into massive long-term results  
 • Systems matter more than goals  
@@ -48,6 +48,8 @@ cover: atomic-habits.jpg
 
 </div>
 
+---
+
 ## Summary
 <div id="summary">
 
@@ -57,7 +59,7 @@ Atomic Habits explains how small behavioral changes compound into extraordinary 
 
 The book emphasizes that long-term improvement does not come from dramatic change but from consistent small improvements that compound over time.
 
-
+---
 
 ### Background About the Book
 
@@ -65,7 +67,7 @@ Atomic Habits was published in 2018 and quickly became one of the most influenti
 
 The book became widely popular because of its clear frameworks and practical advice that readers can immediately apply.
 
-
+---
 
 ### Author Background
 
@@ -73,7 +75,7 @@ James Clear is a writer and speaker focused on habits, decision-making, and cont
 
 He is known for simplifying complex concepts about behavior change into practical frameworks that individuals and organizations can apply.
 
-
+---
 
 ### Book's Target Audience
 
@@ -82,19 +84,19 @@ He is known for simplifying complex concepts about behavior change into practica
 • Individuals trying to build or break habits  
 • Students of behavioral psychology and self-improvement  
 
-
+---
 
 ### Value to Audience
 
 Readers gain a practical system for building good habits and eliminating bad ones. The book provides frameworks that can be applied to personal productivity, leadership, health, and learning.
 
-
+---
 
 ### Reception of the Book
 
 Atomic Habits became an international bestseller and has sold millions of copies worldwide. It has been widely praised for its actionable advice and clear writing style.
 
-
+---
 
 ### Why the Reception Was Positive
 
@@ -102,7 +104,7 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Scientific research supporting habit formation  
 • Clear storytelling and relatable examples  
 
-
+---
 
 ### Why This Book Was a Success
 
@@ -110,7 +112,7 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Universal relevance to personal and professional life  
 • Clear explanation of complex behavioral concepts  
 
-
+---
 
 ### Why This Book Is Good
 
@@ -118,7 +120,7 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Easy-to-understand explanations  
 • Strong integration of psychology and habit science  
 
-
+---
 
 ### Why This Book Is Bad (Devil's Advocate)
 
@@ -126,13 +128,13 @@ Atomic Habits became an international bestseller and has sold millions of copies
 • Concepts may feel obvious to readers familiar with behavioral psychology  
 • Examples may feel simplified for advanced readers  
 
-
+---
 
 ### What Are Takeaways for a Leader
 
 Leaders can apply Atomic Habits by designing environments and systems that reinforce desired behaviors. Instead of relying on motivation, organizations can build processes that make good habits automatic.
 
-
+---
 
 ### What Exercises I Should Do as a Leader
 
@@ -142,180 +144,157 @@ Leaders can apply Atomic Habits by designing environments and systems that reinf
 
 </div>
 
-
+---
 
 ## Chapter-wise Summary
 <div id="chapters">
 
 ### Chapter 1 — The Surprising Power of Atomic Habits
 
-**Main Idea**
-
+**Main Idea**  
 Small improvements accumulate into massive long-term results.
 
-**Key Learning**
-
+**Key Learning**  
 Consistency matters more than intensity.
 
-**Key Example**
-
+**Key Example**  
 The British cycling team's marginal gains strategy.
 
-**Major Anecdote**
-
+**Major Anecdote**  
 Tiny improvements in equipment and routines led to Olympic success.
 
-**Main Concept**
-
+**Main Concept**  
 Marginal Gains
 
-**Executive Use**
-
+**Executive Use**  
 Focus on continuous improvement in teams and processes.
 
-
+---
 
 ### Chapter 2 — Identity-Based Habits
 
-**Main Idea**
-
+**Main Idea**  
 True behavior change happens when identity changes.
 
-**Key Learning**
+**Key Learning**  
+Focus on becoming the type of person who performs the habit.
 
-Instead of focusing on outcomes, focus on becoming the type of person who performs the habit.
-
-**Example**
-
+**Example**  
 “I am a runner” vs “I run occasionally.”
 
-**Main Concept**
-
+**Main Concept**  
 Identity-Based Behavior Change
 
-**Executive Use**
-
+**Executive Use**  
 Build identity-driven cultures in teams.
 
-
+---
 
 ### Chapter 3 — The Four Laws of Behavior Change
 
-**Main Idea**
-
+**Main Idea**  
 Habits can be built using a structured framework.
 
-**Main Concept**
-
+**Main Concept**  
 Cue → Craving → Response → Reward
 
-**Key Learning**
-
+**Key Learning**  
 Habits become easier when the environment supports them.
 
-**Executive Use**
-
+**Executive Use**  
 Design environments that encourage productive behaviors.
 
-
+---
 
 ### Chapter 4 — Make It Obvious
 
-**Main Idea**
-
+**Main Idea**  
 Make cues for good habits visible.
 
-**Key Learning**
-
+**Key Learning**  
 Environment design is more powerful than motivation.
 
-**Example**
-
+**Example**  
 Leaving workout clothes visible increases exercise likelihood.
 
-
+---
 
 ### Chapter 5 — Make It Attractive
 
-**Main Idea**
-
+**Main Idea**  
 Habits stick when they are appealing.
 
-**Key Learning**
-
+**Key Learning**  
 Pair habits with activities you enjoy.
 
-
+---
 
 ### Chapter 6 — Make It Easy
 
-**Main Idea**
-
+**Main Idea**  
 Reduce friction to increase habit adoption.
 
-**Key Learning**
-
+**Key Learning**  
 Start with habits that take less than two minutes.
 
-
+---
 
 ### Chapter 7 — Make It Satisfying
 
-**Main Idea**
-
+**Main Idea**  
 Immediate rewards reinforce habits.
 
-**Key Learning**
-
+**Key Learning**  
 Habit tracking increases consistency.
 
 </div>
 
+---
 
-## Blog — Applying Atomic Habits as a Project Manager in IT Delivery
+## Blogs
+<div id="blogs">
+
 <div class="blog">
 
-### Perspective: A Project Manager with 10 Years in IT Services
+### Applying Atomic Habits as a Project Manager in IT Delivery
+
+**Perspective: A Project Manager with 10 Years in IT Services**
 
 In IT project delivery, many performance issues arise from small recurring behaviors such as inconsistent communication, delayed updates, or unstructured meetings.
 
 Atomic Habits helped shift focus from large improvements to small system-based habits.
 
-Examples implemented in projects:
+Examples implemented:
 
 • Daily 10-minute project health checks  
-• Habit stacking after sprint ceremonies (risk updates, lessons learned)  
+• Habit stacking after sprint ceremonies  
 • Visible workboards to increase accountability  
-• Two-minute deployment documentation habit  
+• Two-minute deployment documentation  
 
-Over time these small practices significantly improved project predictability and reduced escalations.
-
-The key lesson for project managers is to design systems that reinforce productive behaviors rather than relying on motivation alone.
+These practices significantly improved predictability and reduced escalations.
 
 </div>
 
+---
 
-## Blog — Atomic Habits Through the Lens of a Software Developer
 <div class="blog">
 
-### Perspective: A Software Developer with 5 Years of Experience
+### Atomic Habits Through the Lens of a Software Developer
 
-As a developer, improvement often comes from consistent small habits rather than dramatic breakthroughs.
+**Perspective: A Software Developer with 5 Years of Experience**
 
-After applying Atomic Habits principles, several small habits improved development workflow:
+Improvement often comes from consistent small habits rather than dramatic breakthroughs.
+
+Applied habits:
 
 • Writing clearer commit messages  
-• Refactoring small sections of code daily  
-• Spending 15 minutes learning after stand-ups  
-• Following a structured debugging process  
-• Applying the two-minute rule for documentation  
+• Refactoring small code sections daily  
+• 15-minute learning habit post stand-up  
+• Structured debugging process  
+• Two-minute documentation rule  
 
-These small practices improved code quality, learning speed, and collaboration with teammates.
-
-The core takeaway is that becoming a better developer is not about occasional bursts of productivity but about consistent small improvements that compound over time.
+These improved code quality, learning speed, and collaboration.
 
 </div>
 
-
-
-
+</div>
