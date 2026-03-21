@@ -1,35 +1,34 @@
 /* ==========================================
-TTS ENGINE (Stable Version)
+STABLE TTS ENGINE (FULL FIX)
 ========================================== */
 
 let utterance;
 
-/* Wait for DOM */
+/* DOM READY */
 document.addEventListener("DOMContentLoaded", function(){
 
   const readBtn = document.getElementById("readAloudBtn");
   const stopBtn = document.getElementById("stopReadingBtn");
 
   if(readBtn){
-    readBtn.addEventListener("click", startReading);
+    readBtn.addEventListener("click", readAll);
   }
 
   if(stopBtn){
-    stopBtn.addEventListener("click", stopReading);
+    stopBtn.addEventListener("click", () => speechSynthesis.cancel());
   }
 
 });
 
-
 /* ==========================================
-READ FULL CONTENT (FILTERED)
+READ ALL CONTENT
 ========================================== */
 
-function getReadableContent(){
+function readAll(){
 
   let content = "";
 
-  const sections = ["tldr","summary","chapters"];
+  const sections = ["tldr", "summary", "chapters"];
 
   sections.forEach(id => {
     const el = document.getElementById(id);
@@ -42,66 +41,52 @@ function getReadableContent(){
     content += blog.innerText + " ";
   });
 
-  return content;
-}
-
-function startReading(){
-
-  const content = getReadableContent();
-
   if(!content.trim()){
     alert("No readable content found");
     return;
   }
 
   utterance = new SpeechSynthesisUtterance(content);
-  utterance.rate = 1;
-  utterance.pitch = 1;
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
 }
 
-function stopReading(){
-  speechSynthesis.cancel();
-}
-
-
 /* ==========================================
-SECTION READ + SCROLL + HIGHLIGHT
+READ SINGLE SECTION
 ========================================== */
 
 function readSection(id){
 
-  let target;
+  let element;
 
-  if(id === "blog"){
-    target = document.querySelector(".blog");
+  if(id === "blogs"){
+    element = document.querySelector(".blog");
   } else {
-    target = document.getElementById(id);
+    element = document.getElementById(id);
   }
 
-  if(!target){
+  if(!element){
     alert("Section not found");
     return;
   }
 
-  // remove previous highlight
+  /* REMOVE OLD HIGHLIGHT */
   document.querySelectorAll(".reading-active").forEach(el=>{
     el.classList.remove("reading-active");
   });
 
-  target.classList.add("reading-active");
+  element.classList.add("reading-active");
 
-  target.scrollIntoView({
+  element.scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
 
-  const speech = new SpeechSynthesisUtterance(target.innerText);
+  const speech = new SpeechSynthesisUtterance(element.innerText);
 
   speech.onend = () => {
-    target.classList.remove("reading-active");
+    element.classList.remove("reading-active");
   };
 
   speechSynthesis.cancel();
