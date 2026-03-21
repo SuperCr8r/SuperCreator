@@ -19,7 +19,7 @@ cover: atomic-habits.jpg
 <span id="tldr"></span>
 <div class="tldr">
 
-### Executive Key Insights????
+### Executive Key Insights????!!!!
 
 • Small habits compound into massive long-term results  
 
