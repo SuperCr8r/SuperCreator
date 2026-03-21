@@ -17,6 +17,7 @@ cover: atomic-habits.jpg
 
 ## TL;DR
 <span id="tldr"></span>
+<div class="tldr">
 
 ### Executive Key Insights????
 
@@ -57,12 +58,13 @@ cover: atomic-habits.jpg
 
 • Remove cues that trigger bad habits  
 
+</div>
 
 ---
 
 ## Summary
 <span id="summary"></span>
-
+<div class="summary">
 ### Executive Insight
 
 Atomic Habits explains how small behavioral changes compound into extraordinary results over time. James Clear combines psychology, neuroscience, and behavioral science to explain how habits form and how individuals can intentionally design systems that lead to success.
@@ -141,12 +143,13 @@ Leaders can apply Atomic Habits by designing environments and systems that reinf
 • Reduce friction for high-impact work  
 • Build systems that reinforce consistent behaviors  
 
+</div>
 
 ---
 
 ## Chapter-wise Summary
 <span id="chapters"></span>
-
+<div class="chapters">
 ### Chapter 1 — The Surprising Power of Atomic Habits
 
 **Main Idea**  
@@ -251,6 +254,7 @@ Immediate rewards reinforce habits.
 **Key Learning**  
 Habit tracking increases consistency.
 
+</div>
 
 ---
 
