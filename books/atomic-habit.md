@@ -18,7 +18,7 @@ cover: atomic-habits.jpg
 <section id="tldr">
   <h2>TL;DR</h2>
 
-  <h3>Executive Key Insights!!!!??</h3>
+  <h3>Executive Key Insights@@@@</h3>
   <ul>
     <li>Small habits compound into massive long-term results.</li>
     <li>Systems matter more than goals.</li>
