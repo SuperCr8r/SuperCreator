@@ -1,10 +1,7 @@
 /* ==========================================
 ADVANCED SECTION-WISE READ ALOUD
-Features:
-- Reads section block-by-block
-- Highlights currently spoken block
-- Auto-scrolls to spoken block
-- Supports manual stop
++ SMART CENTERED SCROLLING
++ SMOOTH FOCUS + FADE HIGHLIGHT (NEW)
 ========================================== */
 
 let currentQueue = [];
@@ -55,19 +52,11 @@ function stopReading() {
 
 /* ==========================================
 UTILITY: Build readable queue from section
-Reads only meaningful content blocks
 ========================================== */
 function buildSpeechQueue(section) {
   if (!section) return [];
 
-  const selectors = [
-    "h2",
-    "h3",
-    "h4",
-    "p",
-    "li",
-    "blockquote"
-  ];
+  const selectors = ["h2","h3","h4","p","li","blockquote"];
 
   const elements = Array.from(section.querySelectorAll(selectors.join(",")));
 
@@ -80,19 +69,45 @@ function buildSpeechQueue(section) {
 }
 
 /* ==========================================
-UTILITY: Smooth scroll to active spoken block
+SMART CENTERED SCROLL
 ========================================== */
 function scrollToElement(element) {
   if (!element) return;
 
-  element.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest"
+  const rect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  const elementTop = rect.top;
+  const elementBottom = rect.bottom;
+
+  const isComfortablyVisible =
+    elementTop >= 120 && elementBottom <= viewportHeight - 120;
+
+  // If already visible → do nothing
+  if (isComfortablyVisible) return;
+
+  const absoluteTop = window.scrollY + rect.top;
+
+  // Near top → normal scroll
+  if (absoluteTop < 300) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    return;
+  }
+
+  // Center
+  const offset = absoluteTop - (viewportHeight / 2) + (rect.height / 2);
+
+  window.scrollTo({
+    top: offset,
+    behavior: "smooth"
   });
 }
 
 /* ==========================================
-CORE: Speak next block in queue
+CORE: Speak next block
 ========================================== */
 function speakNextBlock() {
   if (!isReading || currentIndex >= currentQueue.length) {
@@ -116,7 +131,14 @@ function speakNextBlock() {
     return;
   }
 
+  // Apply highlight
   element.classList.add("spoken-line");
+
+  // Trigger animation restart
+  element.classList.remove("spoken-animate");
+  void element.offsetWidth; // force reflow
+  element.classList.add("spoken-animate");
+
   scrollToElement(element);
 
   currentUtterance = new SpeechSynthesisUtterance(text);
@@ -126,12 +148,14 @@ function speakNextBlock() {
 
   currentUtterance.onend = () => {
     element.classList.remove("spoken-line");
+    element.classList.remove("spoken-animate");
     currentIndex++;
     speakNextBlock();
   };
 
   currentUtterance.onerror = () => {
     element.classList.remove("spoken-line");
+    element.classList.remove("spoken-animate");
     currentIndex++;
     speakNextBlock();
   };
@@ -140,7 +164,7 @@ function speakNextBlock() {
 }
 
 /* ==========================================
-UTILITY: Final cleanup after reading ends
+FINAL CLEANUP
 ========================================== */
 function finishReading() {
   isReading = false;
@@ -150,6 +174,7 @@ function finishReading() {
 
   document.querySelectorAll(".spoken-line").forEach(el => {
     el.classList.remove("spoken-line");
+    el.classList.remove("spoken-animate");
   });
 
   if (currentSection) {
@@ -160,7 +185,7 @@ function finishReading() {
 }
 
 /* ==========================================
-FEATURE: Read one section
+READ SECTION
 ========================================== */
 function readSection(id) {
   const section = document.getElementById(id);
@@ -185,7 +210,7 @@ function readSection(id) {
   isReading = true;
 
   if (currentQueue.length === 0) {
-    alert("No readable content found in this section.");
+    alert("No readable content found.");
     stopReading();
     return;
   }
@@ -194,37 +219,7 @@ function readSection(id) {
 }
 
 /* ==========================================
-OPTIONAL: Read all sections if needed later
-========================================== */
-function readAllSections() {
-  stopReading();
-
-  const sectionIds = ["tldr", "summary", "chapters", "blog"];
-  const allItems = [];
-
-  sectionIds.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) {
-      const items = buildSpeechQueue(section);
-      allItems.push(...items);
-    }
-  });
-
-  if (allItems.length === 0) {
-    alert("No readable content found.");
-    return;
-  }
-
-  currentQueue = allItems;
-  currentIndex = 0;
-  isReading = true;
-  currentSection = null;
-
-  speakNextBlock();
-}
-
-/* ==========================================
-SAFETY: Cleanup on page unload
+SAFETY
 ========================================== */
 window.addEventListener("beforeunload", () => {
   stopReading();
