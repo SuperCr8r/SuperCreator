@@ -1,68 +1,90 @@
+/* ==========================================
+SMART SECTION NAVIGATION (CLEAN + STABLE)
+- Only picks valid content sections
+- No page title / no noise
+- Smooth active highlighting
+========================================== */
+
 document.addEventListener("DOMContentLoaded", function () {
 
-const nav = document.getElementById("section-nav");
+  const nav = document.getElementById("section-nav");
 
-// Add page title first
-const pageTitle = document.querySelector("h1");
+  if (!nav) return;
 
-if (pageTitle) {
-let li = document.createElement("li");
-let a = document.createElement("a");
+  // Clear existing (safety)
+  nav.innerHTML = "";
 
-pageTitle.id = "top";
+  /* ==========================================
+  DEFINE VALID SECTIONS (STRICT CONTRACT)
+  ========================================== */
 
-a.href = "#top";
-a.textContent = pageTitle.textContent;
+  const validSectionIds = ["tldr", "summary", "chapters", "blog"];
 
-li.appendChild(a);
-nav.appendChild(li);
-}
+  const sections = validSectionIds
+    .map(id => document.getElementById(id))
+    .filter(section => section !== null);
 
-// Collect only content sections
-const sections = document.querySelectorAll(".book-content h2");
+  /* ==========================================
+  BUILD NAV
+  ========================================== */
 
-sections.forEach(section => {
+  sections.forEach(section => {
 
-if (!section.id) {
-section.id = section.textContent
-.toLowerCase()
-.replace(/[^a-z0-9]+/g,"-");
-}
+    const heading = section.querySelector("h2");
+    if (!heading) return;
 
-let li = document.createElement("li");
-let a = document.createElement("a");
+    const li = document.createElement("li");
+    const a = document.createElement("a");
 
-a.href = "#" + section.id;
-a.textContent = section.textContent;
+    a.href = "#" + section.id;
+    a.textContent = heading.textContent;
 
-li.appendChild(a);
-nav.appendChild(li);
+    // Smooth scroll on click
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
 
-});
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
 
-// Scroll highlight
-window.addEventListener("scroll", () => {
+    li.appendChild(a);
+    nav.appendChild(li);
+  });
 
-let current = "";
+  const navLinks = nav.querySelectorAll("a");
 
-sections.forEach(section => {
-const sectionTop = section.offsetTop;
+  /* ==========================================
+  SCROLL-BASED ACTIVE STATE (IMPROVED)
+  ========================================== */
 
-if (window.scrollY >= sectionTop - 120) {
-current = section.getAttribute("id");
-}
-});
+  function setActiveLink() {
 
-document.querySelectorAll("#section-nav a").forEach(link => {
+    let currentSectionId = "";
 
-link.classList.remove("active");
+    sections.forEach(section => {
 
-if (link.getAttribute("href") === "#" + current) {
-link.classList.add("active");
-}
+      const rect = section.getBoundingClientRect();
 
-});
+      // Section is considered active if near viewport top
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        currentSectionId = section.id;
+      }
+    });
 
-});
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === "#" + currentSectionId) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+
+  // Run once on load
+  setActiveLink();
 
 });
