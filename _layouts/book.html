@@ -23,7 +23,8 @@ layout: default
 
         <div class="book-tags">
           {% for tag in page.tags %}
-          <a class="tag" href="{{ '/tags/' | append: tag | append: '.html' | relative_url }}">
+          <!-- ✅ FIX: remove .html -->
+          <a class="tag" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">
             {{ tag }}
           </a>
           {% endfor %}
@@ -46,25 +47,28 @@ layout: default
 
     <hr>
 
-    <h2>Related Books</h2>
-    <div class="card-container">
-      {% assign related = site.pages | where: "section","books" %}
-      {% for book in related %}
-        {% if book.url != page.url %}
-          <a class="card" href="{{ book.url | relative_url }}">
-            <img src="{{ '/assets/images/books/' | append: book.cover | relative_url }}">
-            <div>{{ book.title }}</div>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
+    <section class="related-books-section">
+      <h2>Related Books</h2>
+
+      <div class="card-container">
+        {% assign related = site.pages | where: "section","books" %}
+        {% for book in related %}
+          {% if book.url != page.url %}
+            <a class="card" href="{{ book.url | relative_url }}">
+              <img src="{{ '/assets/images/books/' | append: book.cover | relative_url }}">
+              <div>{{ book.title }}</div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
 
   </div>
 
-  <div class="book-sidebar">
+  <aside class="book-sidebar">
     <h3>On this page</h3>
     <ul id="section-nav"></ul>
-  </div>
+  </aside>
 
 </div>
 
