@@ -3,16 +3,16 @@ layout: null
 ---
 
 [
-{% assign books = site.pages | where: "section", "books" %}
-{% for page in books %}
-{
-  "title": {{ page.title | jsonify }},
-  "author": {{ page.author | default: "" | jsonify }},
-  "description": {{ page.description | default: "" | strip_html | normalize_whitespace | jsonify }},
-  "tags": {{ page.tags | join: ", " | jsonify }},
-  "section": {{ page.section | default: "" | jsonify }},
-  "url": {{ page.url | relative_url | jsonify }},
-  "content": {{ page.content | strip_html | normalize_whitespace | jsonify }}
-}{% unless forloop.last %},{% endunless %}
-{% endfor %}
+  {% assign books = site.pages | where: "section", "books" %}
+  {% for page in books %}
+  {
+    "title": {{ page.title | default: "" | jsonify }},
+    "author": {{ page.author | default: "" | jsonify }},
+    "description": {{ page.description | default: "" | strip_html | strip_newlines | jsonify }},
+    "tags": {{ page.tags | join: ", " | default: "" | jsonify }},
+    "section": {{ page.section | default: "" | jsonify }},
+    "url": {{ page.url | relative_url | jsonify }},
+    "content": {{ page.content | strip_html | strip_newlines | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
 ]
