@@ -1,28 +1,36 @@
 ---
 layout: default
-title: Explore Topics
+title: "Topics"
 ---
 
 {% include navigation.md %}
 
-# Explore Topics
+# Topics
 
-Browse books by topic.
+Explore the knowledge hub by themes and concepts.
+
+Use topics to discover books and content connected to:
+- habits
+- productivity
+- systems
+- behavior
+- self-improvement
+- and more
+
+---
 
 <div class="tag-explorer">
+  {% assign tag_pages = site.pages | where_exp: "item", "item.url contains '/tags/'" | sort: "title" %}
 
-{% assign tags = site.pages | map: "tags" | join: "," | split: "," | uniq | sort %}
-
-{% for tag in tags %}
-
-<a class="tag-card" href="{{ '/tags/' | append: tag | append: '.html' | relative_url }}">
-
-<div class="tag-name">{{ tag }}</div>
-
-</a>
-
-{% endfor %}
-
+  {% for tag in tag_pages %}
+    {% unless tag.url == page.url %}
+      {% unless tag.title == nil %}
+        <a class="tag-card" href="{{ tag.url | relative_url }}">
+          {{ tag.title }}
+        </a>
+      {% endunless %}
+    {% endunless %}
+  {% endfor %}
 </div>
 
 {% include footer.md %}
