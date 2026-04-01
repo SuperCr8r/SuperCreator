@@ -9,7 +9,7 @@ layout: default
   <div class="book-content">
 
     <!-- ==============================
-         BOOK HEADER (CLEANED)
+         BOOK HEADER
     =============================== -->
     <div class="book-header">
 
@@ -35,19 +35,19 @@ layout: default
           {% endfor %}
         </div>
 
+        <!-- ==============================
+             SECTION-WISE TTS CONTROLS
+             Now placed directly under tags
+        =============================== -->
+        <div class="tts-controls">
+          <button onclick="readSection('tldr')">🔊 TL;DR</button>
+          <button onclick="readSection('summary')">🔊 Summary</button>
+          <button onclick="readSection('chapters')">🔊 Chapters</button>
+          <button onclick="readSection('blog')">🔊 Blog</button>
+          <button class="stop-btn" onclick="stopReading()">⏹ Stop</button>
+        </div>
+
       </div>
-
-    </div>
-
-    <!-- ==============================
-         SECTION-WISE TTS CONTROLS (FIXED POSITION)
-    =============================== -->
-    <div class="tts-controls">
-
-      <button onclick="readSection('tldr')">🔊 TL;DR</button>
-      <button onclick="readSection('summary')">🔊 Summary</button>
-      <button onclick="readSection('chapters')">🔊 Chapters</button>
-      <button onclick="readSection('blog')">🔊 Blog</button>
 
     </div>
 
@@ -86,11 +86,9 @@ layout: default
             <a class="card" href="{{ book.url | relative_url }}">
 
               <div class="card-cover-container">
-
                 <img class="card-cover"
                      src="{{ '/assets/images/books/' | append: book.cover | relative_url }}"
                      alt="{{ book.title }}">
-
               </div>
 
               <div class="card-title">{{ book.title }}</div>
