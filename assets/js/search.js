@@ -1,59 +1,93 @@
 /* =====================================================
-FEATURE: Knowledge Hub Autocomplete Search
-FILE: assets/js/search.js
-PURPOSE: Real-time search suggestions using Lunr.js
+FEATURE: Knowledge Hub Autocomplete Search (Hardened)
+- Safe async loading
+- No-result state
+- Baseurl-safe
+- Prevents errors before Lunr is ready
 ===================================================== */
 
-let idx;
-let pages = [];
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-input");
+  const resultsContainer = document.getElementById("search-results");
 
-fetch(window.location.origin + "/SuperCreator/search.json")
-.then(res => res.json())
-.then(data => {
+  if (!searchInput || !resultsContainer) return;
 
-pages = data;
+  let idx = null;
+  let pages = [];
+  let searchReady = false;
 
-idx = lunr(function () {
+  const searchJsonUrl = `${window.location.origin}${window.location.pathname.includes("/SuperCreator") ? "/SuperCreator" : ""}/search.json`;
 
-this.ref("url");
-this.field("title");
-this.field("content");
+  fetch(searchJsonUrl)
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to load search index");
+      return res.json();
+    })
+    .then(data => {
+      pages = data;
 
-data.forEach(doc => this.add(doc));
+      idx = lunr(function () {
+        this.ref("url");
+        this.field("title");
+        this.field("content");
 
-});
+        data.forEach(doc => this.add(doc));
+      });
 
-});
+      searchReady = true;
+    })
+    .catch(err => {
+      console.error("Search init failed:", err);
+      resultsContainer.innerHTML = `<li class="search-item">Search unavailable right now.</li>`;
+    });
 
-document.getElementById("search-input").addEventListener("keyup", function(){
+  searchInput.addEventListener("keyup", function () {
+    const query = this.value.trim();
 
-let query = this.value.trim();
+    if (query.length < 2) {
+      resultsContainer.innerHTML = "";
+      return;
+    }
 
-let resultsContainer = document.getElementById("search-results");
+    if (!searchReady || !idx) {
+      resultsContainer.innerHTML = `<li class="search-item">Loading search…</li>`;
+      return;
+    }
 
-if(query.length < 2){
-resultsContainer.innerHTML = "";
-return;
-}
+    let results = [];
 
-let results = idx.search(query);
+    try {
+      results = idx.search(query);
+    } catch (e) {
+      resultsContainer.innerHTML = `<li class="search-item">No results found.</li>`;
+      return;
+    }
 
-let output = "";
+    if (results.length === 0) {
+      resultsContainer.innerHTML = `<li class="search-item">No results found.</li>`;
+      return;
+    }
 
-results.slice(0,5).forEach(result => {
+    const output = results.slice(0, 6).map(result => {
+      const page = pages.find(p => p.url === result.ref);
+      if (!page) return "";
 
-let page = pages.find(p => p.url === result.ref);
+      return `
+        <li class="search-item">
+          <a href="${page.url}">
+            ${page.title}
+          </a>
+        </li>
+      `;
+    }).join("");
 
-output += `
-<li class="search-item">
-<a href="${page.url}">
-${page.title}
-</a>
-</li>
-`;
+    resultsContainer.innerHTML = output;
+  });
 
-});
-
-resultsContainer.innerHTML = output;
-
+  // Optional: clear results when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+      resultsContainer.innerHTML = "";
+    }
+  });
 });
