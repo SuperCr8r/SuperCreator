@@ -1,33 +1,30 @@
 ---
 layout: default
-title: Search
-permalink: /search/
+title: "Search"
 ---
 
 {% include navigation.md %}
 
-# Search Knowledge Hub
+# Search the Knowledge Hub
 
-<!-- =========================================
-FEATURE: Search Autocomplete UI
-PURPOSE: Enables dropdown suggestions while typing
-FILE: search.md
-========================================= -->
+Use the search box below to find:
+- books
+- ideas
+- topics
+- summaries
+- concepts
 
 <div class="search-box">
-
-<input
-type="text"
-id="search-input"
-placeholder="Search books, ideas, topics..."
-autocomplete="off"
-/>
-
-<ul id="search-results" class="search-dropdown"></ul>
-
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Search books, topics, ideas..."
+    autocomplete="off"
+  />
+  <ul id="search-results" class="search-dropdown"></ul>
 </div>
-
-{% include footer.md %}
 
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+
+{% include footer.md %}
