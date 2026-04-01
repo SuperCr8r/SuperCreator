@@ -87,7 +87,7 @@ function scrollToElement(element) {
 
   element.scrollIntoView({
     behavior: "smooth",
-    block: "center"
+    block: "nearest"
   });
 }
 
@@ -195,7 +195,6 @@ function readSection(id) {
 
 /* ==========================================
 OPTIONAL: Read all sections if needed later
-(Not currently used in UI, but retained)
 ========================================== */
 function readAllSections() {
   stopReading();
