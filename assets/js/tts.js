@@ -1,87 +1,76 @@
 /* ==========================================
-FEATURE: Smart Read Aloud (Filtered Content)
-Reads only meaningful sections
+FEATURE: Section-wise Read Aloud (Stable Version)
+Reads clean section content only
 ========================================== */
 
-let utterance;
+let currentUtterance = null;
 
-function getReadableContent(){
+/* ==========================================
+UTILITY: Stop current reading + cleanup
+========================================== */
+function stopReading() {
+  speechSynthesis.cancel();
+  currentUtterance = null;
 
-  let content = "";
-
-  // TLDR
-  const tldr = document.querySelector("#tldr");
-  if(tldr){
-    content += "T L D R. " + tldr.innerText + " ";
-  }
-
-  // Summary
-  const summary = document.querySelector("#summary");
-  if(summary){
-    content += "Summary. " + summary.innerText + " ";
-  }
-
-  // Chapter-wise Summary
-  const chapters = document.querySelector("#chapters");
-  if(chapters){
-    content += "Chapter wise summary. " + chapters.innerText + " ";
-  }
-
-  // Blogs (multiple)
-  const blogs = document.querySelectorAll(".blog");
-  if(blogs.length > 0){
-    blogs.forEach((blog, index) => {
-      content += "Blog " + (index + 1) + ". " + blog.innerText + " ";
-    });
-  }
-
-  return content;
+  document.querySelectorAll(".reading-active").forEach(el => {
+    el.classList.remove("reading-active");
+  });
 }
 
-document.getElementById("readAloudBtn").addEventListener("click", () => {
+/* ==========================================
+UTILITY: Clean readable text
+========================================== */
+function getCleanText(element) {
+  if (!element) return "";
 
-  const content = getReadableContent();
+  return element.innerText
+    .replace(/\s+/g, " ")
+    .replace(/•/g, ". ")
+    .trim();
+}
 
-  if(!content.trim()){
+/* ==========================================
+UTILITY: Speak text safely
+========================================== */
+function speakText(text, onEndCallback = null) {
+  if (!text || !text.trim()) {
     alert("No readable content found!");
     return;
   }
 
-  utterance = new SpeechSynthesisUtterance(content);
+  stopReading();
 
-  utterance.rate = 1;
-  utterance.pitch = 1;
-  utterance.lang = "en-US";
+  currentUtterance = new SpeechSynthesisUtterance(text);
+  currentUtterance.rate = 1;
+  currentUtterance.pitch = 1;
+  currentUtterance.lang = "en-US";
 
-  speechSynthesis.cancel(); // stop previous if running
-  speechSynthesis.speak(utterance);
+  currentUtterance.onend = () => {
+    if (typeof onEndCallback === "function") {
+      onEndCallback();
+    }
+  };
 
-});
-
-document.getElementById("stopReadingBtn").addEventListener("click", () => {
-  speechSynthesis.cancel();
-});
-
+  speechSynthesis.speak(currentUtterance);
+}
 
 /* ==========================================
-FEATURE: Section Read + Auto Scroll + Highlight
+FEATURE: Read one section
 ========================================== */
-
-function readSection(id){
-
+function readSection(id) {
   const section = document.getElementById(id);
 
-  if(!section){
-    alert("Section not found");
+  if (!section) {
+    alert(`Section "${id}" not found`);
     return;
   }
 
-  // Remove previous highlights
+  // Remove old highlight
   document.querySelectorAll(".reading-active").forEach(el => {
     el.classList.remove("reading-active");
   });
 
-  // Add highlight
+  // Highlight active section
   section.classList.add("reading-active");
 
   // Scroll to section
@@ -90,16 +79,34 @@ function readSection(id){
     block: "start"
   });
 
-  const text = section.innerText;
+  const text = getCleanText(section);
 
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "en-US";
-
-  // When reading ends → remove highlight
-  speech.onend = () => {
+  speakText(text, () => {
     section.classList.remove("reading-active");
-  };
-
-  speechSynthesis.cancel();
-  speechSynthesis.speak(speech);
+  });
 }
+
+/* ==========================================
+OPTIONAL: Read all content if ever needed later
+(Not currently used by UI, but kept for scalability)
+========================================== */
+function getReadableContent() {
+  const sectionIds = ["tldr", "summary", "chapters", "blog"];
+  let content = "";
+
+  sectionIds.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      content += getCleanText(section) + " ";
+    }
+  });
+
+  return content.trim();
+}
+
+/* ==========================================
+SAFETY: Cleanup on page unload
+========================================== */
+window.addEventListener("beforeunload", () => {
+  stopReading();
+});
