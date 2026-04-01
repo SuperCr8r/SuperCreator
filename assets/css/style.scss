@@ -3,54 +3,26 @@
 
 @import "{{ site.theme }}";
 
-/* ==========================================
-FIX: REDUCE HEADER HEIGHT + REMOVE GITHUB BTN
-========================================== */
-
+/* FIX HEADER HEIGHT */
 .page-header {
-  padding: 1.5rem 1rem !important;
+  padding: 1.6rem 1rem !important;
 }
 
+/* REMOVE GITHUB BUTTON ONLY */
 .page-header .btn {
   display: none !important;
 }
 
-/* ==========================================
-REMOVE DEFAULT GITHUB FOOTER
-========================================== */
-
+/* KEEP FOOTER BUT CLEAN */
 .site-footer {
-  display: none !important;
+  font-size: 0.9rem;
 }
 
-/* ==========================================
-GLOBAL
-========================================== */
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-  line-height: 1.7;
-}
-
-/* ==========================================
-NAV
-========================================== */
-
-.nav-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-/* ==========================================
-BOOK PAGE LAYOUT
-========================================== */
-
+/* BOOK LAYOUT */
 .book-page {
   display: grid;
   grid-template-columns: 1fr 300px;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .book-header {
@@ -59,81 +31,28 @@ BOOK PAGE LAYOUT
   gap: 2rem;
 }
 
-.book-title-area h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ==========================================
-TAGS FIX
-========================================== */
-
+/* TAGS */
 .tag {
-  text-decoration: none;
-  padding: 0.35rem 0.8rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.9rem;
   border-radius: 999px;
   background: #eef2f7;
-  font-size: 0.85rem;
 }
 
-/* ==========================================
-FIX: BUTTON SIZE REDUCTION
-========================================== */
-
-.tts-controls {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
+/* BUTTON FIX (NOT TOO SMALL NOW) */
 .tts-controls button {
-  font-size: 0.82rem;
-  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
   border-radius: 8px;
-  min-width: 90px;
 }
 
-.stop-btn {
-  min-width: 70px;
-}
-
-/* ==========================================
-SIDEBAR
-========================================== */
-
-.book-sidebar {
-  position: sticky;
-  top: 1.5rem;
-  background: #f8fafc;
-  padding: 1.2rem;
-  border-radius: 14px;
-}
-
-/* ==========================================
-SEARCH
-========================================== */
-
+/* SEARCH */
 .search-dropdown {
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: auto;
 }
 
-/* ==========================================
-TTS HIGHLIGHT
-========================================== */
-
-.spoken-line {
-  background: rgba(16, 185, 129, 0.15);
-}
-
-.reading-active {
-  background: rgba(255, 248, 220, 0.2);
-}
-
-/* ==========================================
-RESPONSIVE
-========================================== */
-
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .book-page {
     grid-template-columns: 1fr;
