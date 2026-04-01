@@ -8,115 +8,66 @@ layout: default
 
   <div class="book-content">
 
-    <!-- ==============================
-         BOOK HEADER
-    =============================== -->
     <div class="book-header">
 
       <img class="book-cover"
-           src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
-           alt="{{ page.title }}">
+           src="{{ '/assets/images/books/' | append: page.cover | relative_url }}">
 
       <div class="book-title-area">
 
         <h1>{{ page.title }}</h1>
 
         <div class="book-meta">
-          <strong>Author:</strong> {{ page.author }} |
-          <strong>Year:</strong> {{ page.year }} |
-          <strong>Rating:</strong> {{ page.rating }}
+          Author: {{ page.author }} | Year: {{ page.year }} | Rating: {{ page.rating }}
         </div>
 
-        {% if page.tags %}
         <div class="book-tags">
           {% for tag in page.tags %}
-          <a class="tag" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">
+          <a class="tag" href="{{ '/tags/' | append: tag | append: '.html' | relative_url }}">
             {{ tag }}
           </a>
           {% endfor %}
         </div>
-        {% endif %}
 
-        <!-- ==============================
-             SECTION-WISE TTS CONTROLS
-        =============================== -->
         <div class="tts-controls">
-          <button type="button" onclick="readSection('tldr')">🔊 TL;DR</button>
-          <button type="button" onclick="readSection('summary')">🔊 Summary</button>
-          <button type="button" onclick="readSection('chapters')">🔊 Chapters</button>
-          <button type="button" onclick="readSection('blog')">🔊 Blog</button>
-          <button type="button" class="stop-btn" onclick="stopReading()">⏹ Stop</button>
+          <button onclick="readSection('tldr')">🔊 TL;DR</button>
+          <button onclick="readSection('summary')">🔊 Summary</button>
+          <button onclick="readSection('chapters')">🔊 Chapters</button>
+          <button onclick="readSection('blog')">🔊 Blog</button>
+          <button class="stop-btn" onclick="stopReading()">⏹ Stop</button>
         </div>
 
       </div>
-
     </div>
 
     <hr>
 
-    <!-- ==============================
-         MAIN CONTENT
-    =============================== -->
     {{ content }}
 
     <hr>
 
-    <!-- ==============================
-         RELATED BOOKS
-    =============================== -->
-    <section id="related-books-section" class="related-books-section">
-      <h2>Related Books</h2>
-
-      <div class="card-container">
-
-        {% assign related = site.pages | where: "section", "books" %}
-        {% assign shown_count = 0 %}
-
-        {% for book in related %}
-          {% if book.url != page.url %}
-
-            {% assign shared_count = 0 %}
-
-            {% for tag in page.tags %}
-              {% if book.tags contains tag %}
-                {% assign shared_count = shared_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-
-            {% if shared_count >= 1 and shown_count < 6 %}
-              <a class="card" href="{{ book.url | relative_url }}">
-
-                <div class="card-cover-container">
-                  <img class="card-cover"
-                       src="{{ '/assets/images/books/' | append: book.cover | relative_url }}"
-                       alt="{{ book.title }}">
-                </div>
-
-                <div class="card-title">{{ book.title }}</div>
-
-              </a>
-
-              {% assign shown_count = shown_count | plus: 1 %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-
-      </div>
-    </section>
+    <h2>Related Books</h2>
+    <div class="card-container">
+      {% assign related = site.pages | where: "section","books" %}
+      {% for book in related %}
+        {% if book.url != page.url %}
+          <a class="card" href="{{ book.url | relative_url }}">
+            <img src="{{ '/assets/images/books/' | append: book.cover | relative_url }}">
+            <div>{{ book.title }}</div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
 
   </div>
 
-  <!-- ==============================
-       SIDEBAR
-  =============================== -->
-  <aside class="book-sidebar" aria-label="On this page">
+  <div class="book-sidebar">
     <h3>On this page</h3>
     <ul id="section-nav"></ul>
-  </aside>
+  </div>
 
 </div>
 
-<script src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/section-nav.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/tts.js' | relative_url }}"></script>
 
