@@ -1,58 +1,73 @@
+---
+layout: default
+title: "Home"
+---
+
 {% include navigation.md %}
 
-## Welcome
+# Welcome to {{ site.title }}
 
-Welcome to my **Knowledge Hub**.
+A curated knowledge hub for:
+- Book summaries
+- Practical frameworks
+- Product thinking
+- Innovation insights
+- Productivity systems
 
-This website captures my notes, insights and experiments across learning, productivity, product thinking and innovation.
+This site is designed to make learning:
+- faster
+- more structured
+- easier to revisit
 
 ---
 
-## Explore Sections
+## Explore by Area
 
 ### 📚 Books
-Insights and reflections from books I read.
+Read structured summaries, key takeaways, chapter-wise breakdowns, and practical applications.
 
-→ [Explore Books](books)
+👉 [Browse Books]({{ '/books/' | relative_url }})
+
+---
+
+### 🏷️ Topics
+Explore content by themes such as habits, productivity, systems, and more.
+
+👉 [Browse Topics]({{ '/tags/' | relative_url }})
+
+---
+
+### 🔎 Search
+Search across the entire knowledge base quickly.
+
+👉 [Open Search]({{ '/search/' | relative_url }})
 
 ---
 
 ### ⚙️ Productivity
-Ideas and experiments to improve productivity and thinking systems.
+Practical systems, habits, workflows, and execution ideas.
 
-→ [Explore Productivity](productivity)
+👉 [Open Productivity]({{ '/productivity/' | relative_url }})
 
 ---
 
-### 🧠 Product Thinking
-Frameworks and notes about product development and strategy.
+### 🧠 Product
+Product strategy, product thinking, and execution perspectives.
 
-→ [Explore Product](product)
+👉 [Open Product]({{ '/product/' | relative_url }})
 
 ---
 
 ### 🚀 Innovation
-Thoughts on innovation systems, experiments and frameworks.
+Frameworks, ideas, and innovation thinking.
 
-→ [Explore Innovation](innovation)
-
----
-
-## Latest Notes
-
-• [Atomic Habits](books/atomic-habits)
-
-More insights coming soon.
+👉 [Open Innovation]({{ '/innovation/' | relative_url }})
 
 ---
 
-## About This Site
+### ➕ More
+Additional categories and expanding content.
 
-This site acts as a **personal knowledge repository** capturing ideas and reflections across multiple domains.
-
-The goal is to build a structured knowledge base over time.
-
-
-
+👉 [Explore More]({{ '/more/' | relative_url }})
 
 {% include footer.md %}
