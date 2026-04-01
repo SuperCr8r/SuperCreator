@@ -1,33 +1,44 @@
+---
+layout: default
+title: "Books"
+---
+
 {% include navigation.md %}
 
 # Books
 
-This section contains notes and reflections from books I read.
+Explore concise, structured, and practical summaries of high-value books.
+
+Each book page includes:
+- TL;DR
+- Summary
+- Chapter-wise breakdown
+- Practical application blogs
+- Related books
+- Read Aloud support
+
+---
 
 <div class="card-container">
+  {% assign books = site.pages | where: "section", "books" | sort: "title" %}
 
-{% assign books = site.pages | where: "section", "books" | sort: "title" %}
+  {% for book in books %}
+    {% if book.url != page.url %}
+      <a class="card" href="{{ book.url | relative_url }}">
+        <div class="card-cover-container">
+          <img class="card-cover"
+               src="{{ '/assets/images/books/' | append: book.cover | relative_url }}"
+               alt="{{ book.title }}">
+        </div>
 
-{% for page in books %}
+        <div class="card-title">{{ book.title }}</div>
 
-<a class="card" href="{{ page.url | relative_url }}">
-
-<div class="card-cover-container">
-
-<img class="card-cover"
-src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
-alt="{{ page.title }}">
-
-</div>
-
-<div class="card-title">{{ page.title }}</div>
-
-<div class="card-desc">{{ page.description }}</div>
-
-</a>
-
-{% endfor %}
-
+        {% if book.description %}
+        <div class="card-desc">{{ book.description }}</div>
+        {% endif %}
+      </a>
+    {% endif %}
+  {% endfor %}
 </div>
 
 {% include footer.md %}
