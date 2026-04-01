@@ -1,15 +1,74 @@
 ---
-layout: null
+layout: book
+title: "Book Title"
+author: "Author Name"
+year: 2024
+rating: 8
+cover: "book-cover.jpg"
+section: books
+tags: [tag1, tag2, tag3]
+description: "One-line practical description of the book."
 ---
 
-[
-{% assign books = site.pages | where:"section","books" %}
-{% for page in books %}
-{
-"title": "{{ page.title | escape }}",
-"url": "{{ page.url | relative_url }}",
-"content": {{ page.content | strip_html | jsonify }}
-}
-{% unless forloop.last %},{% endunless %}
-{% endfor %}
-]
+<section id="tldr">
+  <h2>TL;DR</h2>
+
+  <h3>Executive Key Insights</h3>
+  <ul>
+    <li>Insight 1</li>
+    <li>Insight 2</li>
+    <li>Insight 3</li>
+  </ul>
+
+  <h3>Practical Takeaways</h3>
+  <ul>
+    <li>Takeaway 1</li>
+    <li>Takeaway 2</li>
+    <li>Takeaway 3</li>
+  </ul>
+
+  <h3>Top 3 Quotes</h3>
+  <blockquote>Quote 1</blockquote>
+  <blockquote>Quote 2</blockquote>
+  <blockquote>Quote 3</blockquote>
+</section>
+
+<hr>
+
+<section id="summary">
+  <h2>Summary</h2>
+
+  <p>Main summary paragraph 1.</p>
+  <p>Main summary paragraph 2.</p>
+  <p>Main summary paragraph 3.</p>
+</section>
+
+<hr>
+
+<section id="chapters">
+  <h2>Chapter-wise Summary</h2>
+
+  <h3>1. Chapter Title</h3>
+  <p>Summary of chapter.</p>
+
+  <h3>2. Chapter Title</h3>
+  <p>Summary of chapter.</p>
+</section>
+
+<hr>
+
+<section id="blog">
+  <h2>Blog</h2>
+
+  <article class="blog">
+    <h3>Practical Blog Title 1</h3>
+    <h4>Subheading / framing line</h4>
+    <p>Blog content...</p>
+  </article>
+
+  <article class="blog">
+    <h3>Practical Blog Title 2</h3>
+    <h4>Subheading / framing line</h4>
+    <p>Blog content...</p>
+  </article>
+</section>
