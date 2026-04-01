@@ -5,7 +5,6 @@
 
 /* ======================================================
 GENERAL SITE TWEAKS
-Reduces large hero header and adjusts title size
 ====================================================== */
 
 .page-header {
@@ -36,7 +35,6 @@ CUSTOM FOOTER
 
 /* ======================================================
 BOOK GRID LAYOUT
-Used on Books page and Related Books
 ====================================================== */
 
 .card-container {
@@ -68,11 +66,6 @@ BOOK CARD
   text-decoration: none;
 }
 
-/* ======================================================
-BOOK COVER CONTAINER
-Ensures proper 2:3 book ratio and visible border
-====================================================== */
-
 .card-cover-container {
   width: 100%;
   aspect-ratio: 2 / 3;
@@ -89,10 +82,6 @@ Ensures proper 2:3 book ratio and visible border
   object-fit: cover;
 }
 
-/* ======================================================
-CARD TEXT
-====================================================== */
-
 .card-title {
   padding: 0.9rem 0.95rem 1rem;
   font-size: 0.96rem;
@@ -108,17 +97,19 @@ CARD TEXT
 
 /* ======================================================
 BOOK PAGE LAYOUT
-Two column layout (content + floating navigation)
+FIXED:
+- more breathing room for content
+- sidebar pushed right
 ====================================================== */
 
 .book-page {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 4rem;
   align-items: start;
-  max-width: 1320px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 2rem 1.5rem 4rem;
 }
 
 .book-content {
@@ -128,41 +119,45 @@ Two column layout (content + floating navigation)
 
 /* ======================================================
 BOOK HEADER
-Cover + title area
+FIXED:
+- title block aligned higher beside cover
 ====================================================== */
 
 .book-header {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-bottom: 1.75rem;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 2.2rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
 }
 
 .book-cover {
-  width: 220px;
+  width: 240px;
   max-width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  flex-shrink: 0;
+  display: block;
 }
 
 .book-title-area {
-  flex: 1;
-  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 0.25rem;
+  min-width: 0;
 }
 
 .book-title-area h1 {
   margin-top: 0;
-  margin-bottom: 0.85rem;
-  line-height: 1.15;
-  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-bottom: 0.8rem;
+  line-height: 1.12;
+  font-size: clamp(2.15rem, 3vw, 3rem);
 }
 
 .book-meta {
-  margin: 0.75rem 0 1rem;
+  margin: 0.3rem 0 0.9rem;
   line-height: 1.8;
   font-size: 1rem;
   color: #444;
@@ -176,16 +171,17 @@ TAG STYLING
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.42rem 0.8rem;
+  padding: 0.38rem 0.78rem;
   border-radius: 999px;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   line-height: 1;
   background: #eef2f7;
   color: #333;
@@ -197,6 +193,47 @@ TAG STYLING
   background: #0366d6;
   color: white;
   text-decoration: none;
+}
+
+/* ======================================================
+TTS CONTROLS
+FIXED:
+- smaller utility-chip look
+- stop button added style
+====================================================== */
+
+.tts-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.2rem 0 0;
+}
+
+.tts-controls button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  background: #111827;
+  color: #ffffff;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.12);
+}
+
+.tts-controls button:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.tts-controls button:active {
+  transform: translateY(0);
+}
+
+.tts-controls .stop-btn {
+  background: #7c2d12;
 }
 
 /* ======================================================
@@ -286,7 +323,6 @@ SEARCH UI
 
 /* ======================================================
 CONTENT SECTION DIVIDERS
-Restores divider lines between book sections
 ====================================================== */
 
 .book-content hr {
@@ -297,7 +333,6 @@ Restores divider lines between book sections
 
 /* ======================================================
 BOOK CONTENT SECTIONS
-Compatible with semantic sections from Step 1
 ====================================================== */
 
 #tldr,
@@ -402,19 +437,24 @@ BLOG ARTICLES
 
 /* ======================================================
 SIDEBAR NAVIGATION
-Floating "On this page"
+FIXED:
+- moved right visually
+- tighter footprint
 ====================================================== */
 
 .book-sidebar {
   position: sticky;
   top: 100px;
   align-self: start;
-  padding: 1.25rem 1rem;
+  padding: 1.3rem 1rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 14px;
+  border-radius: 16px;
   background: #ffffff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   font-size: 0.95rem;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
 }
 
 .book-sidebar h3 {
@@ -450,54 +490,45 @@ Floating "On this page"
 }
 
 /* ======================================================
-TTS BUTTONS STYLING
-Compatible with Step 2 cleaned template
-====================================================== */
-
-.tts-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin: 1rem 0 2rem;
-}
-
-.tts-controls button {
-  border: none;
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  font-size: 0.95rem;
-  line-height: 1;
-  cursor: pointer;
-  background: #111827;
-  color: #ffffff;
-  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.12);
-}
-
-.tts-controls button:hover {
-  transform: translateY(-1px);
-  opacity: 0.96;
-}
-
-.tts-controls button:active {
-  transform: translateY(0);
-}
-
-/* ======================================================
 READING HIGHLIGHT EFFECT
-Compatible with Step 3 tts.js
+Section-level highlight
 ====================================================== */
 
 .reading-active {
-  background: rgba(255, 248, 220, 0.72);
+  background: rgba(255, 248, 220, 0.55);
   border-radius: 14px;
   padding: 1rem 1rem 0.4rem;
   transition: background 0.25s ease;
 }
 
 /* ======================================================
+NEW: SPOKEN BLOCK HIGHLIGHT
+For paragraph-by-paragraph speech tracking
+====================================================== */
+
+.spoken-line {
+  background: rgba(255, 243, 205, 0.95);
+  border-left: 4px solid #f59e0b;
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);
+}
+
+/* ======================================================
 RESPONSIVE
 ====================================================== */
+
+@media (max-width: 1200px) {
+  .book-page {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 2.5rem;
+  }
+
+  .book-sidebar {
+    max-width: 280px;
+  }
+}
 
 @media (max-width: 1100px) {
   .book-page {
@@ -508,6 +539,11 @@ RESPONSIVE
     position: static;
     order: -1;
     margin-bottom: 1.25rem;
+    max-width: 100%;
+  }
+
+  .book-header {
+    grid-template-columns: 220px minmax(0, 1fr);
   }
 }
 
@@ -518,11 +554,12 @@ RESPONSIVE
   }
 
   .book-header {
+    grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
   .book-cover {
-    width: 180px;
+    width: 190px;
   }
 
   .book-title-area h1 {
@@ -530,12 +567,12 @@ RESPONSIVE
   }
 
   .tts-controls {
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
 
   .tts-controls button {
-    width: 100%;
-    justify-content: center;
+    font-size: 0.82rem;
+    padding: 0.62rem 0.82rem;
   }
 
   #tldr,
@@ -552,10 +589,6 @@ RESPONSIVE
 }
 
 @media (max-width: 520px) {
-  .book-header {
-    flex-direction: column;
-  }
-
   .book-cover {
     width: 100%;
     max-width: 240px;
@@ -563,5 +596,10 @@ RESPONSIVE
 
   .book-meta {
     font-size: 0.96rem;
+  }
+
+  .tts-controls button {
+    width: 100%;
+    justify-content: center;
   }
 }
