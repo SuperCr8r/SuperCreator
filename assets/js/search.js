@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let idx;
   let pages = [];
 
-  const searchJsonUrl = "{{ '/search.json' | relative_url }}";
+  // ✅ FIX: correct base path handling
+  const baseUrl = window.location.pathname.includes("/SuperCreator") ? "/SuperCreator" : "";
+  const searchJsonUrl = baseUrl + "/search.json";
 
   fetch(searchJsonUrl)
     .then(res => res.json())
@@ -18,33 +20,43 @@ document.addEventListener("DOMContentLoaded", function () {
       idx = lunr(function () {
         this.ref("url");
         this.field("title", { boost: 10 });
-        this.field("author", { boost: 6 });
-        this.field("tags", { boost: 5 });
-        this.field("description", { boost: 4 });
+        this.field("author");
+        this.field("tags");
+        this.field("description");
         this.field("content");
 
         data.forEach(doc => this.add(doc));
       });
+    })
+    .catch(err => {
+      console.error("Search load error:", err);
     });
 
   searchInput.addEventListener("keyup", function () {
-    const query = this.value;
+    const query = this.value.trim();
 
-    if (query.length < 2) {
+    if (query.length < 2 || !idx) {
       resultsContainer.innerHTML = "";
       return;
     }
 
-    const results = idx.search(query);
+    let results = [];
 
-    resultsContainer.innerHTML = results.map(r => {
+    try {
+      results = idx.search(query);
+    } catch {
+      resultsContainer.innerHTML = "<li>No results</li>";
+      return;
+    }
+
+    resultsContainer.innerHTML = results.slice(0, 6).map(r => {
       const page = pages.find(p => p.url === r.ref);
 
       return `
-        <li>
+        <li class="search-item">
           <a href="${page.url}">
             <strong>${page.title}</strong>
-            <div>${page.description || ""}</div>
+            ${page.description ? `<div>${page.description}</div>` : ""}
           </a>
         </li>
       `;
