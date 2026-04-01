@@ -1,9 +1,8 @@
 /* =====================================================
-FEATURE: Knowledge Hub Autocomplete Search (Hardened)
-- Safe async loading
-- No-result state
-- Baseurl-safe
-- Prevents errors before Lunr is ready
+ADVANCED SEARCH (PRODUCTION VERSION)
+- Uses title, author, description, tags, content
+- Handles loading safely
+- Better UX
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -28,7 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       idx = lunr(function () {
         this.ref("url");
-        this.field("title");
+
+        this.field("title", { boost: 10 });
+        this.field("author", { boost: 6 });
+        this.field("tags", { boost: 5 });
+        this.field("description", { boost: 4 });
         this.field("content");
 
         data.forEach(doc => this.add(doc));
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(err => {
       console.error("Search init failed:", err);
-      resultsContainer.innerHTML = `<li class="search-item">Search unavailable right now.</li>`;
+      resultsContainer.innerHTML = `<li class="search-item">Search unavailable.</li>`;
     });
 
   searchInput.addEventListener("keyup", function () {
@@ -75,7 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return `
         <li class="search-item">
           <a href="${page.url}">
-            ${page.title}
+            <strong>${page.title}</strong>
+            ${page.author ? `<div class="search-meta">by ${page.author}</div>` : ""}
+            ${page.description ? `<div class="search-desc">${page.description}</div>` : ""}
           </a>
         </li>
       `;
@@ -84,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     resultsContainer.innerHTML = output;
   });
 
-  // Optional: clear results when clicking outside
   document.addEventListener("click", function (e) {
     if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
       resultsContainer.innerHTML = "";
