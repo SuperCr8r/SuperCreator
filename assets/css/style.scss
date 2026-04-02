@@ -457,12 +457,31 @@ TTS HIGHLIGHT STATES
   background: rgba(255, 248, 220, 0.22);
   border-radius: 12px;
   padding: 0.25rem 0.45rem;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
 }
 
 .spoken-line {
   background: rgba(16, 185, 129, 0.14);
   border-radius: 8px;
-  transition: background 0.2s ease;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spoken-animate {
+  animation: spokenFade 0.65s ease;
+}
+
+@keyframes spokenFade {
+  0% {
+    background: rgba(16, 185, 129, 0.34);
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.18);
+  }
+  100% {
+    background: rgba(16, 185, 129, 0.14);
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
 }
 
 /* ==========================================
