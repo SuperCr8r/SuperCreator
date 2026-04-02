@@ -2,6 +2,7 @@
 title: Deep Work
 section: books
 description: Mastering focus in a distracted world.
+cover: "deep-work.jpg"
 ---
 
 {% include navigation.md %}
