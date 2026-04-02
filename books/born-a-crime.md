@@ -1,6 +1,7 @@
 ---
 title: Born a Crime
 section: books
+cover: "born-a-crime.jpg"
 description: Trevor Noah's powerful memoir about growing up in apartheid South Africa.
 ---
 
