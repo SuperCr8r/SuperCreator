@@ -85,6 +85,7 @@ BOOK PAGE LAYOUT
   gap: 2.5rem;
   align-items: start;
   margin-top: 1rem;
+  scroll-margin-top: 110px;
 }
 
 .book-cover {
@@ -283,6 +284,89 @@ BOOK CONTENT TYPOGRAPHY
 }
 
 /* ==========================================
+ACCORDIONS
+========================================== */
+
+.accordion-section,
+.accordion-subsection {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  margin: 1.1rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.accordion-subsection {
+  margin: 1rem 0;
+  border-radius: 14px;
+  box-shadow: none;
+  background: #fbfdff;
+}
+
+.accordion-toggle {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  padding: 1.1rem 1.2rem;
+  transition: background 0.2s ease;
+}
+
+.accordion-toggle:hover {
+  background: #f8fafc;
+}
+
+.accordion-toggle.level-1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #16a34a;
+  padding: 1.2rem 1.35rem;
+}
+
+.accordion-toggle.level-2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.accordion-icon {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #64748b;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.open > .accordion-toggle .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 1.2rem;
+}
+
+.open > .accordion-content {
+  padding: 0 1.2rem 1.15rem;
+}
+
+.accordion-content > *:first-child {
+  margin-top: 0.6rem;
+}
+
+.accordion-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
 BLOG ARTICLES
 ========================================== */
 
@@ -290,8 +374,8 @@ BLOG ARTICLES
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: 1.35rem 1.4rem;
-  margin: 1.5rem 0;
+  padding: 0;
+  margin: 1.2rem 0;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
 
@@ -575,6 +659,10 @@ RESPONSIVE
 
   .card-cover-container {
     min-height: 220px;
+  }
+
+  .accordion-toggle.level-1 {
+    font-size: 1.2rem;
   }
 }
 
