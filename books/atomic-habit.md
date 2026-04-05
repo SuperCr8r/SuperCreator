@@ -382,6 +382,30 @@ description: "A practical framework for building good habits and breaking bad on
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
+  function setAccordionHeight(content) {
+    if (!content) return;
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+
+  function updateAncestorHeights(element) {
+    let current = element.parentElement;
+
+    while (current) {
+      if (
+        current.classList &&
+        (current.classList.contains("accordion-section") ||
+         current.classList.contains("accordion-subsection"))
+      ) {
+        const parentContent = current.querySelector(":scope > .accordion-content");
+        if (parentContent && current.classList.contains("open")) {
+          setAccordionHeight(parentContent);
+        }
+      }
+      current = current.parentElement;
+    }
+  }
+
   const accordionToggles = document.querySelectorAll(".accordion-toggle");
 
   accordionToggles.forEach(toggle => {
@@ -391,27 +415,29 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = this.nextElementSibling;
 
       parent.classList.toggle("open");
-      this.setAttribute("aria-expanded", !isOpen);
+      this.setAttribute("aria-expanded", String(!isOpen));
 
       if (content) {
         if (!isOpen) {
-          content.style.maxHeight = content.scrollHeight + "px";
+          setAccordionHeight(content);
         } else {
           content.style.maxHeight = null;
         }
       }
 
-      const nestedOpenChildren = parent.querySelectorAll(".open > .accordion-content");
-      nestedOpenChildren.forEach(child => {
-        if (child !== content) {
-          child.style.maxHeight = child.scrollHeight + "px";
-        }
-      });
+      updateAncestorHeights(parent);
     });
   });
 
   document.querySelectorAll(".accordion-section.open > .accordion-content, .accordion-subsection.open > .accordion-content").forEach(content => {
-    content.style.maxHeight = content.scrollHeight + "px";
+    setAccordionHeight(content);
   });
+
+  window.addEventListener("resize", function () {
+    document.querySelectorAll(".accordion-section.open > .accordion-content, .accordion-subsection.open > .accordion-content").forEach(content => {
+      setAccordionHeight(content);
+    });
+  });
+
 });
 </script>
