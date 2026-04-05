@@ -2,6 +2,7 @@
 ADVANCED SECTION-WISE READ ALOUD
 + SMART CENTERED SCROLLING
 + PREMIUM FOCUS ANIMATION
++ ACCORDION SAFE
 ========================================== */
 
 let currentQueue = [];
@@ -52,12 +53,45 @@ function stopReading() {
 }
 
 /* ==========================================
+UTILITY: Open all nested accordions in section
+========================================== */
+function expandAllAccordionsInSection(section) {
+  if (!section) return;
+
+  const containers = section.querySelectorAll(".accordion-section, .accordion-subsection");
+
+  containers.forEach(container => {
+    container.classList.add("open");
+
+    const toggle = container.querySelector(":scope > .accordion-toggle");
+    const content = container.querySelector(":scope > .accordion-content");
+
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    if (content) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+
+/* ==========================================
 UTILITY: Build readable queue from section
 ========================================== */
 function buildSpeechQueue(section) {
   if (!section) return [];
 
-  const selectors = ["h2", "h3", "h4", "p", "li", "blockquote"];
+  const selectors = [
+    ".accordion-toggle span:first-child",
+    "h2",
+    "h3",
+    "h4",
+    "p",
+    "li",
+    "blockquote"
+  ];
+
   const elements = Array.from(section.querySelectorAll(selectors.join(",")));
 
   return elements
@@ -87,7 +121,6 @@ function scrollToElement(element) {
 
   const absoluteTop = window.scrollY + rect.top;
 
-  // Near top of page → natural scroll
   if (absoluteTop < 320) {
     element.scrollIntoView({
       behavior: "smooth",
@@ -96,7 +129,6 @@ function scrollToElement(element) {
     return;
   }
 
-  // Center element in viewport
   const offset = absoluteTop - (viewportHeight / 2) + (rect.height / 2);
 
   window.scrollTo({
@@ -132,7 +164,6 @@ function speakNextBlock() {
 
   element.classList.add("spoken-line");
 
-  // Restart animation every time
   element.classList.remove("spoken-animate");
   void element.offsetWidth;
   element.classList.add("spoken-animate");
@@ -195,6 +226,8 @@ function readSection(id) {
 
   stopReading();
 
+  expandAllAccordionsInSection(section);
+
   currentSection = section;
   currentSection.classList.add("reading-active");
 
@@ -222,12 +255,13 @@ OPTIONAL: Read all sections
 function readAllSections() {
   stopReading();
 
-  const sectionIds = ["tldr", "summary", "chapters", "blog"];
+  const sectionIds = ["tldr", "summary", "chapters", "exercises", "blogs"];
   const allItems = [];
 
   sectionIds.forEach(id => {
     const section = document.getElementById(id);
     if (section) {
+      expandAllAccordionsInSection(section);
       const items = buildSpeechQueue(section);
       allItems.push(...items);
     }
