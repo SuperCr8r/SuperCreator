@@ -9,9 +9,9 @@ layout: default
   <div class="book-content">
 
     <!-- ==============================
-         BOOK HEADER
+         BOOK HEADER / KEY INFO
     =============================== -->
-    <div class="book-header">
+    <div class="book-header" id="book-top">
 
       <img class="book-cover"
            src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
@@ -44,7 +44,8 @@ layout: default
           <button type="button" onclick="readSection('tldr')">🔊 TL;DR</button>
           <button type="button" onclick="readSection('summary')">🔊 Summary</button>
           <button type="button" onclick="readSection('chapters')">🔊 Chapters</button>
-          <button type="button" onclick="readSection('blog')">🔊 Blog</button>
+          <button type="button" onclick="readSection('exercises')">🔊 Exercises</button>
+          <button type="button" onclick="readSection('blogs')">🔊 Blogs</button>
           <button type="button" class="stop-btn" onclick="stopReading()">⏹ Stop</button>
         </div>
 
