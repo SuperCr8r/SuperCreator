@@ -56,7 +56,7 @@ description: "A practical framework for building good habits and breaking bad on
         <span class="accordion-icon">+</span>
       </button>
       <div class="accordion-content" hidden>
-        <p>Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
+        <p>99Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
       </div>
     </div>
 
