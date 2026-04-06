@@ -56,7 +56,7 @@ TL;DR
         <span class="accordion-icon">+</span>
       </button>
       <div class="accordion-content" hidden>
-        <p>Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
+        <p>77Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
       </div>
     </div>
 
