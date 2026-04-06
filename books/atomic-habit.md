@@ -23,7 +23,7 @@ description: "A practical framework for building good habits and breaking bad on
         <span class="accordion-icon">+</span>
       </button>
       <div class="accordion-content">
-        <p>Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
+        <p>1Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
       </div>
     </div>
 
@@ -34,7 +34,7 @@ description: "A practical framework for building good habits and breaking bad on
       </button>
       <div class="accordion-content">
         <ul>
-          <li><strong>1You do not rise to the level of your goals; you fall to the level of your systems.</strong> Outcomes are downstream of the processes you repeatedly follow.</li>
+          <li><strong>You do not rise to the level of your goals; you fall to the level of your systems.</strong> Outcomes are downstream of the processes you repeatedly follow.</li>
           <li><strong>Habits are votes for the type of person you want to become.</strong> Lasting change is identity-first, not outcome-first.</li>
           <li><strong>Small changes are powerful because they compound.</strong> Improvement is rarely dramatic in the short term, but enormous over time.</li>
           <li><strong>Environment often beats motivation.</strong> The easiest path usually wins, so design surroundings that make the right behavior obvious and frictionless.</li>
