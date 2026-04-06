@@ -10,20 +10,33 @@ tags: [habits, productivity, behavior, systems, self-improvement]
 description: "A practical framework for building good habits and breaking bad ones through small, consistent improvements."
 ---
 
+<style>
+/* 🔥 CRITICAL FIX */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-section.open > .accordion-content,
+.accordion-subsection.open > .accordion-content {
+  max-height: none !important; /* allow full expansion */
+}
+</style>
+
 <section id="tldr" class="accordion-section open">
-  <button class="accordion-toggle level-1" type="button" aria-expanded="true">
+  <button class="accordion-toggle level-1" type="button">
     <span>TL;DR</span>
     <span class="accordion-icon">+</span>
   </button>
 
   <div class="accordion-content">
     <div class="accordion-subsection open">
-      <button class="accordion-toggle level-2" type="button" aria-expanded="true">
+      <button class="accordion-toggle level-2" type="button">
         <span>One-Line Book Thesis</span>
         <span class="accordion-icon">+</span>
       </button>
       <div class="accordion-content">
-        <p>1Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
+        <p>0Tiny, consistent improvements—designed through systems and identity—compound into remarkable long-term results.</p>
       </div>
     </div>
 
@@ -52,7 +65,7 @@ description: "A practical framework for building good habits and breaking bad on
   </button>
 
   <div class="accordion-content">
-    <p><strong>Atomic Habits</strong> explains how small behavioral changes compound into long-term transformation. The focus is on systems and identity, not goals.</p>
+    <p><strong>Atomic Habits</strong> explains how small behavioral changes compound into long-term transformation.</p>
   </div>
 </section>
 
@@ -116,29 +129,6 @@ description: "A practical framework for building good habits and breaking bad on
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  function setHeight(el) {
-    if (!el) return;
-    el.style.maxHeight = el.scrollHeight + "px";
-  }
-
-  function updateParents(el) {
-    let parent = el.parentElement;
-
-    while (parent) {
-      if (
-        parent.classList &&
-        (parent.classList.contains("accordion-section") ||
-         parent.classList.contains("accordion-subsection"))
-      ) {
-        const content = parent.querySelector(":scope > .accordion-content");
-        if (content && parent.classList.contains("open")) {
-          setHeight(content);
-        }
-      }
-      parent = parent.parentElement;
-    }
-  }
-
   document.querySelectorAll(".accordion-toggle").forEach(btn => {
     btn.addEventListener("click", function () {
 
@@ -147,23 +137,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const isOpen = container.classList.contains("open");
 
       container.classList.toggle("open");
-      this.setAttribute("aria-expanded", !isOpen);
 
       if (content) {
         if (!isOpen) {
-          setHeight(content);
-          requestAnimationFrame(() => updateParents(container));
+          content.style.maxHeight = content.scrollHeight + "px";
         } else {
-          content.style.maxHeight = null;
-          requestAnimationFrame(() => updateParents(container));
+          content.style.maxHeight = "0px";
         }
       }
 
     });
   });
-
-  document.querySelectorAll(".accordion-section.open > .accordion-content, .accordion-subsection.open > .accordion-content")
-    .forEach(setHeight);
 
 });
 </script>
