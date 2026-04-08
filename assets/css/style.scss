@@ -13,14 +13,32 @@ body {
   color: #2c3e50;
 }
 
+/* ==========================================
+REMOVE CAYMAN / GITHUB HERO CLUTTER
+- Removes View on GitHub / CTA area
+- Reduces top header height
+========================================== */
+
 .page-header {
-  padding: 2.5rem 1rem;
+  padding: 1.2rem 1rem 0.6rem !important;
+  min-height: auto !important;
+}
+
+.page-header .project-name,
+.page-header .project-tagline,
+.page-header .btn,
+.page-header a.btn,
+.page-header .github-button,
+.page-header .view-on-github,
+.page-header .downloads,
+.page-header .project-links {
+  display: none !important;
 }
 
 .main-content {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 1.5rem 1.5rem 4rem;
 }
 
 hr {
@@ -52,16 +70,14 @@ NAVIGATION
 }
 
 /* ==========================================
-FOOTER
+FOOTER (REMOVED GLOBALLY)
 ========================================== */
 
+.site-footer,
+.site-footer-owner,
+.site-footer-credits,
 .site-footer-custom {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e5e7eb;
-  font-size: 0.95rem;
-  color: #6b7280;
-  text-align: center;
+  display: none !important;
 }
 
 /* ==========================================
@@ -84,7 +100,8 @@ BOOK PAGE LAYOUT
   grid-template-columns: 260px minmax(0, 1fr);
   gap: 2.5rem;
   align-items: start;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   scroll-margin-top: 110px;
 }
 
@@ -100,10 +117,11 @@ BOOK PAGE LAYOUT
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 0.25rem;
+  padding-top: 0.2rem;
 }
 
-.book-title-area h1 {
+.book-title-area h1,
+.book-title {
   margin-top: 0;
   margin-bottom: 0.75rem;
   font-size: 3rem;
@@ -180,6 +198,38 @@ TTS CONTROLS
 .tts-controls .stop-btn {
   background: #374151;
   min-width: 95px;
+}
+
+/* ==========================================
+GLOBAL ACCORDION CONTROLS
+========================================== */
+
+.accordion-global-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.accordion-global-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.72rem 1rem;
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.accordion-global-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.accordion-global-btn.secondary {
+  background: #475569;
 }
 
 /* ==========================================
@@ -284,8 +334,14 @@ BOOK CONTENT TYPOGRAPHY
 }
 
 /* ==========================================
-ACCORDIONS
+ACCORDIONS (STABLE / NO CROPPING)
+- Removes old max-height clipping issue
+- Works for any number of subsections
 ========================================== */
+
+.accordion-content[hidden] {
+  display: none !important;
+}
 
 .accordion-section,
 .accordion-subsection {
@@ -293,7 +349,9 @@ ACCORDIONS
   border-radius: 18px;
   background: #ffffff;
   margin: 1.1rem 0;
-  overflow: hidden;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
 
@@ -348,9 +406,10 @@ ACCORDIONS
 }
 
 .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
+  display: block;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
   padding: 0 1.2rem;
 }
 
@@ -621,21 +680,23 @@ RESPONSIVE
     max-width: 240px;
   }
 
-  .book-title-area h1 {
+  .book-title-area h1,
+  .book-title {
     font-size: 2.35rem;
   }
 }
 
 @media (max-width: 640px) {
   .main-content {
-    padding: 1.5rem 1rem 3rem;
+    padding: 1.25rem 1rem 3rem;
   }
 
   .nav-bar {
     font-size: 0.98rem;
   }
 
-  .book-title-area h1 {
+  .book-title-area h1,
+  .book-title {
     font-size: 2rem;
   }
 
@@ -643,12 +704,14 @@ RESPONSIVE
     font-size: 0.98rem;
   }
 
-  .tts-controls button {
+  .tts-controls button,
+  .accordion-global-btn {
     min-width: auto;
     width: 100%;
   }
 
-  .tts-controls {
+  .tts-controls,
+  .accordion-global-controls {
     flex-direction: column;
     align-items: stretch;
   }
