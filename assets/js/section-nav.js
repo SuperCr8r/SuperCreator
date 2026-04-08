@@ -1,8 +1,9 @@
 /* ==========================================
-SMART SECTION NAVIGATION (CONTROLLED + STABLE)
-- Explicit book page section map
-- Includes book title as top anchor
-- Smooth active highlighting
+SMART SECTION NAVIGATION (UPDATED)
+- Includes Key Info as top jump
+- Supports new exercises/blogs ids
+- Smooth scroll
+- Active section highlighting
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,21 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   nav.innerHTML = "";
 
-  const sectionMap = [
-    { id: "book-top", label: document.querySelector(".book-title-area h1")?.textContent?.trim() || "Book" },
-    { id: "tldr", label: "TL;DR" },
-    { id: "summary", label: "Summary" },
-    { id: "chapters", label: "Chapter-wise Summary" },
-    { id: "exercises", label: "Exercises for You" },
-    { id: "blogs", label: "Blogs" }
+  const navConfig = [
+    { id: "key-info", labelFallback: document.title.replace(" | SuperCreator", "") || "Book" },
+    { id: "tldr", labelFallback: "TL;DR" },
+    { id: "summary", labelFallback: "Summary" },
+    { id: "chapters", labelFallback: "Chapter-wise Summary" },
+    { id: "exercises", labelFallback: "Exercises for You" },
+    { id: "blogs", labelFallback: "Blogs" }
   ];
 
-  const sections = sectionMap
-    .map(item => ({
-      ...item,
-      element: document.getElementById(item.id)
-    }))
-    .filter(item => item.element !== null);
+  const sections = navConfig
+    .map(item => {
+      const el = document.getElementById(item.id);
+      return el ? { ...item, el } : null;
+    })
+    .filter(Boolean);
 
   if (sections.length === 0) return;
 
@@ -34,12 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const a = document.createElement("a");
 
     a.href = "#" + item.id;
-    a.textContent = item.label;
+
+    const heading =
+      item.el.querySelector("h1, h2, .book-title") ||
+      item.el.querySelector(".accordion-toggle span") ||
+      null;
+
+    a.textContent = heading
+      ? heading.textContent.trim()
+      : item.labelFallback;
 
     a.addEventListener("click", function (e) {
       e.preventDefault();
 
-      item.element.scrollIntoView({
+      item.el.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
@@ -55,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSectionId = "";
 
     sections.forEach(item => {
-      const rect = item.element.getBoundingClientRect();
+      const rect = item.el.getBoundingClientRect();
 
-      if (rect.top <= 150 && rect.bottom >= 150) {
+      if (rect.top <= 180 && rect.bottom >= 180) {
         currentSectionId = item.id;
       }
     });
