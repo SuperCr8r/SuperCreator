@@ -11,7 +11,7 @@ layout: default
     <!-- ==============================
          BOOK HEADER / KEY INFO
     =============================== -->
-    <div class="book-header" id="book-top">
+    <section class="book-header" id="key-info">
 
       <img class="book-cover"
            src="{{ '/assets/images/books/' | append: page.cover | relative_url }}"
@@ -19,7 +19,7 @@ layout: default
 
       <div class="book-title-area">
 
-        <h1>{{ page.title }}</h1>
+        <h1 class="book-title">{{ page.title }}</h1>
 
         <div class="book-meta">
           <strong>Author:</strong> {{ page.author }} |
@@ -51,9 +51,18 @@ layout: default
 
       </div>
 
-    </div>
+    </section>
 
     <hr>
+
+    <!-- ==============================
+         GLOBAL ACCORDION CONTROLS
+         Best UX placement: above first content section
+    =============================== -->
+    <div class="accordion-global-controls" aria-label="Accordion controls">
+      <button type="button" id="expand-all-btn" class="accordion-global-btn">Expand All</button>
+      <button type="button" id="collapse-all-btn" class="accordion-global-btn secondary">Collapse All</button>
+    </div>
 
     <!-- ==============================
          MAIN CONTENT
@@ -120,5 +129,76 @@ layout: default
 <script src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/section-nav.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/tts.js' | relative_url }}"></script>
+
+<script>
+/* ==========================================
+GLOBAL ACCORDION CONTROLS (REUSABLE)
+- Supports any number of sections/subsections
+- Default open state handled here
+- Works across all book pages
+========================================== */
+document.addEventListener("DOMContentLoaded", function () {
+  const containers = document.querySelectorAll(".accordion-section, .accordion-subsection");
+  const expandAllBtn = document.getElementById("expand-all-btn");
+  const collapseAllBtn = document.getElementById("collapse-all-btn");
+
+  function openAccordion(container) {
+    if (!container) return;
+
+    container.classList.add("open");
+
+    const toggle = container.querySelector(":scope > .accordion-toggle");
+    const content = container.querySelector(":scope > .accordion-content");
+
+    if (toggle) toggle.setAttribute("aria-expanded", "true");
+    if (content) content.hidden = false;
+  }
+
+  function closeAccordion(container) {
+    if (!container) return;
+
+    container.classList.remove("open");
+
+    const toggle = container.querySelector(":scope > .accordion-toggle");
+    const content = container.querySelector(":scope > .accordion-content");
+
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+    if (content) content.hidden = true;
+  }
+
+  // Default: ALL expanded on page load
+  containers.forEach(openAccordion);
+
+  // Individual toggle behavior
+  document.querySelectorAll(".accordion-toggle").forEach(toggle => {
+    toggle.addEventListener("click", function () {
+      const container = this.closest(".accordion-section, .accordion-subsection");
+      if (!container) return;
+
+      const isOpen = container.classList.contains("open");
+
+      if (isOpen) {
+        closeAccordion(container);
+      } else {
+        openAccordion(container);
+      }
+    });
+  });
+
+  // Expand All
+  if (expandAllBtn) {
+    expandAllBtn.addEventListener("click", function () {
+      containers.forEach(openAccordion);
+    });
+  }
+
+  // Collapse All
+  if (collapseAllBtn) {
+    collapseAllBtn.addEventListener("click", function () {
+      containers.forEach(closeAccordion);
+    });
+  }
+});
+</script>
 
 {% include footer.md %}
