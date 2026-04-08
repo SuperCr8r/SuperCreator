@@ -16,6 +16,11 @@ kramdown:
   input: GFM
   hard_wrap: false
 
+# Prevent Cayman theme GitHub CTA / metadata UI where possible
+show_downloads: false
+github:
+  is_project_page: false
+
 defaults:
   - scope:
       path: ""
